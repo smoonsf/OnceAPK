@@ -32,6 +32,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ListView;
 
+
 public class MainActivity extends Activity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -47,6 +48,7 @@ public class MainActivity extends Activity implements
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
 	 * navigation drawer.
+	 * tests
 	 */
 	private NavigationDrawerFragment mNavigationDrawerFragment;
 
