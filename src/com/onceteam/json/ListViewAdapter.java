@@ -20,16 +20,12 @@ import android.widget.TextView;
 public class ListViewAdapter extends BaseAdapter {
 
 	// Declare Variables
-	Context context;
 	ArrayList<HashMap<String, String>> data;
 	ImageLoader imageLoader;
 	HashMap<String, String> resultp = new HashMap<String, String>();
 
-	public ListViewAdapter(Context context,
-			ArrayList<HashMap<String, String>> arraylist) {
-		this.context = context;
+	public ListViewAdapter(ArrayList<HashMap<String, String>> arraylist) {
 		data = arraylist;
-		imageLoader = new ImageLoader(context);
 	}
 
 	@Override
@@ -48,6 +44,8 @@ public class ListViewAdapter extends BaseAdapter {
 	}
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
+	    final Context context = parent.getContext();
+		imageLoader = new ImageLoader(context);
 		// Declare Variables
 		TextView id = null;
 		TextView subtitle = null;
@@ -94,8 +92,6 @@ public class ListViewAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View arg0) {
-				// Get the position
-				resultp = data.get(position);
 				Intent intent = new Intent(context, DetailViewActivity.class);
 				// Pass all data id
 				intent.putExtra("id", resultp.get(MainActivity.ID));

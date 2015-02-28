@@ -9,7 +9,9 @@ import org.json.JSONObject;
 
 import com.onceteam.json.JSONfunctions;
 import com.onceteam.json.ListViewAdapter;
+import com.onceteam.json.NoticeListAdapter;
 import com.onceteam.json.myPagerAdapter;
+
 
 
 
@@ -219,8 +221,6 @@ public class MainActivity extends Activity implements
 			case 1:
 				rootView = inflater.inflate(R.layout.fragment_main, container,
 						false);
-				ListView lv = (ListView) rootView.findViewById(R.id.listview_main);
-				ViewPager vp = (ViewPager) rootView.findViewById(R.id.pager_premium);
 				
 				new DownloadMain(inflater.getContext(), rootView).execute();
 				
@@ -228,6 +228,8 @@ public class MainActivity extends Activity implements
 			case 6:
 				rootView = inflater.inflate(R.layout.fragment_notice,
 						container, false);
+				
+				new DownloadNotice(inflater.getContext(), rootView).execute();
 				break;
 			case 8:
 				rootView = inflater.inflate(R.layout.fragment_contactus, container,
@@ -330,7 +332,7 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 
 	@Override
 	protected void onPostExecute(Void args) {
-		ListViewAdapter LVa = new ListViewAdapter(ctx,mainlist);
+		ListViewAdapter LVa = new ListViewAdapter(mainlist);
 		listview_main.setAdapter(LVa);
 		myPagerAdapter mPa = new myPagerAdapter(ctx,pvlist);
 		premiumview.setAdapter(mPa);
@@ -338,6 +340,10 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 		mProgressDialog.dismiss();
 	}
 }
+
+
+
+
 
 class DownloadNotice extends AsyncTask<Void, Void, Void> {
 	
@@ -410,13 +416,9 @@ class DownloadNotice extends AsyncTask<Void, Void, Void> {
 
 	@Override
 	protected void onPostExecute(Void args) {
-		
-		
-//		ListViewAdapter LVa = new ListViewAdapter(ctx,mainlist);
-//		listview_main.setAdapter(LVa);
-//		myPagerAdapter mPa = new myPagerAdapter(ctx,pvlist);
-//		premiumview.setAdapter(mPa);
-		
+		NoticeListAdapter NLa = new NoticeListAdapter(noticelist);
+		listview_notice.setAdapter(NLa);
+
 		mProgressDialog.dismiss();
 	}
 }

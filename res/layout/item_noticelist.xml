@@ -6,13 +6,18 @@
     <TextView 
         android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
+    	android:layout_alignParentLeft="true"
+    	android:layout_alignParentStart="true"
     	android:id="@+id/title_notice"
         />
     <TextView 
         android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
+    	android:layout_alignParentLeft="true"
+    	android:layout_alignParentStart="true"
     	android:layout_below="@+id/title_notice"
     	android:id="@+id/date_notice"
+    	android:textColor="#cccccc"
         />
 
 </RelativeLayout>
