@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class NoticeListAdapter extends BaseAdapter {
 
@@ -42,7 +44,12 @@ public class NoticeListAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+		TextView title;
+		TextView date;
+
+		minf = LayoutInflater.from(context);
+		
+		
 		return null;
 	}
 
