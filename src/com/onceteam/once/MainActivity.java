@@ -253,19 +253,19 @@ public class MainActivity extends Activity implements
 class DownloadMain extends AsyncTask<Void, Void, Void> {
 	
 	Context ctx;
-	ArrayList<HashMap<String, String>> arraylist;
-	ArrayList<HashMap<String, String>> pvalist;
+	ArrayList<HashMap<String, String>> mainlist;
+	ArrayList<HashMap<String, String>> pvlist;
 	ProgressDialog mProgressDialog;
 	JSONObject jsonobject;
 	JSONArray jsonarray;
-	ListView listview;
+	ListView listview_main;
 	ViewPager premiumview;
 	
 	public DownloadMain(Context context, ListView lv, ViewPager vp){
-		pvalist = new ArrayList<HashMap<String, String>>();
-		arraylist = new ArrayList<HashMap<String, String>>();
+		pvlist = new ArrayList<HashMap<String, String>>();
+		mainlist = new ArrayList<HashMap<String, String>>();
 		ctx = context;
-		listview = lv;
+		listview_main = lv;
 		premiumview = vp;
 	}
 		
@@ -311,10 +311,10 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 						jsonobject.getString("date"));
 				
 				// Set the JSON Objects into the array
-				arraylist.add(map);
+				mainlist.add(map);
 				
 				if(jsonobject.getString("advanced")=="true"){
-					pvalist.add(map);
+					pvlist.add(map);
 				}
 					
 			}
@@ -327,10 +327,94 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 
 	@Override
 	protected void onPostExecute(Void args) {
-		ListViewAdapter LVa = new ListViewAdapter(ctx,arraylist);
-		listview.setAdapter(LVa);
-		myPagerAdapter mPa = new myPagerAdapter(ctx,pvalist);
+		ListViewAdapter LVa = new ListViewAdapter(ctx,mainlist);
+		listview_main.setAdapter(LVa);
+		myPagerAdapter mPa = new myPagerAdapter(ctx,pvlist);
 		premiumview.setAdapter(mPa);
+		
+		mProgressDialog.dismiss();
+	}
+}
+
+class DownloadNotice extends AsyncTask<Void, Void, Void> {
+	
+	Context ctx;
+	ArrayList<HashMap<String, String>> noticelist;
+	ProgressDialog mProgressDialog;
+	JSONObject jsonobject;
+	JSONArray jsonarray;
+	ListView listview_notice;
+	ViewPager premiumview;
+	
+	public DownloadNotice(Context context, ListView lv, ViewPager vp){
+		noticelist = new ArrayList<HashMap<String, String>>();
+		
+		ctx = context;
+		listview_notice = lv;
+		premiumview = vp;
+	}
+		
+	
+	@Override
+	protected void onPreExecute() {
+		super.onPreExecute();
+		// Create a progressdialog
+		mProgressDialog = new ProgressDialog(ctx);
+		// Set progressdialog title
+		mProgressDialog.setTitle("행사정보를 수신 중입니다");
+		// Set progressdialog message
+		mProgressDialog.setMessage("Loading...");
+		mProgressDialog.setIndeterminate(false);
+		// Show progressdialog
+		mProgressDialog.show();
+	}
+
+	@Override
+	protected Void doInBackground(Void... params) {
+		
+		
+
+		try {
+			// Locate the array name in JSON
+			
+			jsonarray = new JSONArray(
+					JSONfunctions
+							.GET("http://once-server.herokuapp.com/api/events"));
+			
+			
+
+			for (int i = 0; i < jsonarray.length(); i++) {
+				HashMap<String, String> map = new HashMap<String, String>();
+				jsonobject = jsonarray.getJSONObject(i);
+				// Retrive JSON Objects
+				map.put("id", jsonobject.getString("id"));
+				map.put("poster",
+						jsonobject.getString("poster"));
+				map.put("subtitle",
+						jsonobject.getString("subtitle"));
+				map.put("date",
+						jsonobject.getString("date"));
+				
+				// Set the JSON Objects into the array
+				noticelist.add(map);
+				
+//				if(jsonobject.getString("advanced")=="true"){
+//					pvalist.add(map);
+//				}
+					
+			}
+		} catch (JSONException e) {
+			Log.e("Error", e.getMessage());
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	protected void onPostExecute(Void args) {
+		ListViewAdapter LVa = new ListViewAdapter(ctx,noticelist);
+		listview_notice.setAdapter(LVa);
+		
 		
 		mProgressDialog.dismiss();
 	}
