@@ -40,12 +40,12 @@ public class ListViewAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		return null;
+		return data.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		return 0;
+		return position;
 	}
 
 	public View getView(final int position, View convertView, ViewGroup parent) {

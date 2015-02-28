@@ -222,7 +222,7 @@ public class MainActivity extends Activity implements
 				ListView lv = (ListView) rootView.findViewById(R.id.listview_main);
 				ViewPager vp = (ViewPager) rootView.findViewById(R.id.pager_premium);
 				
-				new DownloadMain(inflater.getContext(), lv, vp).execute();
+				new DownloadMain(inflater.getContext(), rootView).execute();
 				
 				break;
 			case 6:
@@ -253,6 +253,7 @@ public class MainActivity extends Activity implements
 class DownloadMain extends AsyncTask<Void, Void, Void> {
 	
 	Context ctx;
+	View rv;
 	ArrayList<HashMap<String, String>> mainlist;
 	ArrayList<HashMap<String, String>> pvlist;
 	ProgressDialog mProgressDialog;
@@ -261,12 +262,14 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 	ListView listview_main;
 	ViewPager premiumview;
 	
-	public DownloadMain(Context context, ListView lv, ViewPager vp){
+	public DownloadMain(Context context, View rootView){
 		pvlist = new ArrayList<HashMap<String, String>>();
 		mainlist = new ArrayList<HashMap<String, String>>();
+		
 		ctx = context;
-		listview_main = lv;
-		premiumview = vp;
+		rv = rootView;
+		listview_main = (ListView) rv.findViewById(R.id.listview_main);
+		premiumview = (ViewPager) rv.findViewById(R.id.pager_premium);
 	}
 		
 	
@@ -276,7 +279,7 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 		// Create a progressdialog
 		mProgressDialog = new ProgressDialog(ctx);
 		// Set progressdialog title
-		mProgressDialog.setTitle("«‡ªÁ¡§∫∏∏¶ ºˆΩ≈ ¡ﬂ¿‘¥œ¥Ÿ");
+		mProgressDialog.setTitle("ÌñâÏÇ¨Ï†ïÎ≥¥Î•º Î∞õÍ≥† ÏûàÏäµÎãàÎã§.");
 		// Set progressdialog message
 		mProgressDialog.setMessage("Loading...");
 		mProgressDialog.setIndeterminate(false);
@@ -339,19 +342,19 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 class DownloadNotice extends AsyncTask<Void, Void, Void> {
 	
 	Context ctx;
+	View rv;
 	ArrayList<HashMap<String, String>> noticelist;
 	ProgressDialog mProgressDialog;
 	JSONObject jsonobject;
 	JSONArray jsonarray;
 	ListView listview_notice;
-	ViewPager premiumview;
+
 	
-	public DownloadNotice(Context context, ListView lv, ViewPager vp){
+	public DownloadNotice(Context context, View rootView){
 		noticelist = new ArrayList<HashMap<String, String>>();
-		
 		ctx = context;
-		listview_notice = lv;
-		premiumview = vp;
+		rv = rootView;
+		listview_notice = (ListView) rv.findViewById(R.id.listview_notice);
 	}
 		
 	
@@ -361,7 +364,7 @@ class DownloadNotice extends AsyncTask<Void, Void, Void> {
 		// Create a progressdialog
 		mProgressDialog = new ProgressDialog(ctx);
 		// Set progressdialog title
-		mProgressDialog.setTitle("«‡ªÁ¡§∫∏∏¶ ºˆΩ≈ ¡ﬂ¿‘¥œ¥Ÿ");
+		mProgressDialog.setTitle("Í≥µÏßÄÏÇ¨Ìï≠ÏùÑ Î∞õÍ≥† ÏûàÏäµÎãàÎã§.");
 		// Set progressdialog message
 		mProgressDialog.setMessage("Loading...");
 		mProgressDialog.setIndeterminate(false);
@@ -379,7 +382,7 @@ class DownloadNotice extends AsyncTask<Void, Void, Void> {
 			
 			jsonarray = new JSONArray(
 					JSONfunctions
-							.GET("http://once-server.herokuapp.com/api/events"));
+							.GET("http://once-server.herokuapp.com/api/notices"));
 			
 			
 
@@ -387,21 +390,16 @@ class DownloadNotice extends AsyncTask<Void, Void, Void> {
 				HashMap<String, String> map = new HashMap<String, String>();
 				jsonobject = jsonarray.getJSONObject(i);
 				// Retrive JSON Objects
-				map.put("id", jsonobject.getString("id"));
-				map.put("poster",
-						jsonobject.getString("poster"));
-				map.put("subtitle",
-						jsonobject.getString("subtitle"));
+				map.put("title", jsonobject.getString("title"));
+				map.put("content",
+						jsonobject.getString("content"));
 				map.put("date",
 						jsonobject.getString("date"));
 				
 				// Set the JSON Objects into the array
 				noticelist.add(map);
 				
-//				if(jsonobject.getString("advanced")=="true"){
-//					pvalist.add(map);
-//				}
-					
+				
 			}
 		} catch (JSONException e) {
 			Log.e("Error", e.getMessage());
@@ -412,9 +410,12 @@ class DownloadNotice extends AsyncTask<Void, Void, Void> {
 
 	@Override
 	protected void onPostExecute(Void args) {
-		ListViewAdapter LVa = new ListViewAdapter(ctx,noticelist);
-		listview_notice.setAdapter(LVa);
 		
+		
+//		ListViewAdapter LVa = new ListViewAdapter(ctx,mainlist);
+//		listview_main.setAdapter(LVa);
+//		myPagerAdapter mPa = new myPagerAdapter(ctx,pvlist);
+//		premiumview.setAdapter(mPa);
 		
 		mProgressDialog.dismiss();
 	}

@@ -35,27 +35,28 @@ public final class R {
         public static final int temp_img=0x7f020004;
     }
     public static final class id {
-        public static final int action_example=0x7f080015;
+        public static final int action_example=0x7f080016;
         public static final int container=0x7f080001;
-        public static final int date=0x7f08000d;
-        public static final int date_sv=0x7f080013;
-        public static final int datelabel=0x7f08000c;
-        public static final int datelabel_sv=0x7f080012;
+        public static final int date=0x7f08000e;
+        public static final int date_sv=0x7f080014;
+        public static final int datelabel=0x7f08000d;
+        public static final int datelabel_sv=0x7f080013;
         public static final int drawer_layout=0x7f080000;
-        public static final int id=0x7f080009;
-        public static final int id_sv=0x7f08000f;
-        public static final int idlabel=0x7f080008;
-        public static final int idlabel_sv=0x7f08000e;
+        public static final int id=0x7f08000a;
+        public static final int id_sv=0x7f080010;
+        public static final int idlabel=0x7f080009;
+        public static final int idlabel_sv=0x7f08000f;
         public static final int listview_main=0x7f080004;
+        public static final int listview_notice=0x7f080006;
         public static final int navigation_drawer=0x7f080002;
         public static final int pager_premium=0x7f080005;
-        public static final int poster=0x7f080007;
-        public static final int poster_sv=0x7f080014;
-        public static final int subtitle=0x7f08000b;
-        public static final int subtitle_sv=0x7f080011;
-        public static final int subtitlelabel=0x7f08000a;
-        public static final int subtitlelabel_sv=0x7f080010;
-        public static final int text1=0x7f080006;
+        public static final int poster=0x7f080008;
+        public static final int poster_sv=0x7f080015;
+        public static final int subtitle=0x7f08000c;
+        public static final int subtitle_sv=0x7f080012;
+        public static final int subtitlelabel=0x7f08000b;
+        public static final int subtitlelabel_sv=0x7f080011;
+        public static final int text1=0x7f080007;
         public static final int webview=0x7f080003;
     }
     public static final class layout {
@@ -67,7 +68,8 @@ public final class R {
         public static final int fragment_notice=0x7f030005;
         public static final int item_drawerlist=0x7f030006;
         public static final int item_listview=0x7f030007;
-        public static final int item_singleview=0x7f030008;
+        public static final int item_noticelist=0x7f030008;
+        public static final int item_singleview=0x7f030009;
     }
     public static final class menu {
         public static final int global=0x7f070000;
