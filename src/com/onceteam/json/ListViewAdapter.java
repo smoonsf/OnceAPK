@@ -21,7 +21,6 @@ public class ListViewAdapter extends BaseAdapter {
 
 	// Declare Variables
 	Context context;
-	LayoutInflater inflater;
 	ArrayList<HashMap<String, String>> data;
 	ImageLoader imageLoader;
 	HashMap<String, String> resultp = new HashMap<String, String>();
@@ -50,24 +49,38 @@ public class ListViewAdapter extends BaseAdapter {
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		// Declare Variables
-		TextView id;
-		TextView subtitle;
-		TextView date;
-		ImageView poster;
-
-		inflater = LayoutInflater.from(context);
-
-		View itemView = inflater.inflate(R.layout.item_listview, parent, false);
+		TextView id = null;
+		TextView subtitle = null;
+		TextView date = null;
+		ImageView poster = null;
+		CustomHolder holder = null;
+		
+		if(convertView == null){
+			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	        convertView = inflater.inflate(R.layout.item_listview, parent, false);
+	        
+	        id = (TextView) convertView.findViewById(R.id.id);
+	        subtitle = (TextView) convertView.findViewById(R.id.subtitle);
+	        date = (TextView) convertView.findViewById(R.id.date);
+	        poster = (ImageView) convertView.findViewById(R.id.poster);
+	        
+	        holder = new CustomHolder();
+	        holder.m_id = id;
+	        holder.m_subtitle = subtitle;
+	        holder.m_date = date;
+	        holder.m_poster = poster;
+	        convertView.setTag(holder);
+		}
+		else {
+			holder = (CustomHolder)convertView.getTag();
+			id = holder.m_id;
+			subtitle = holder.m_subtitle;
+			date = holder.m_date;
+			poster = holder.m_poster;
+		}
+		
 		// Get the position
 		resultp = data.get(position);
-
-		// Locate the TextViews in item_listview.xml
-		id = (TextView) itemView.findViewById(R.id.id);
-		subtitle = (TextView) itemView.findViewById(R.id.subtitle);
-		date = (TextView) itemView.findViewById(R.id.date);
-
-		// Locate the ImageView in item_listview.xml
-		poster = (ImageView) itemView.findViewById(R.id.poster);
 
 		// Capture position and set results to the TextViews
 		id.setText(resultp.get(MainActivity.ID));
@@ -77,7 +90,7 @@ public class ListViewAdapter extends BaseAdapter {
 		// Passes poster images URL into ImageLoader.class
 		imageLoader.DisplayImage(resultp.get(MainActivity.POSTER), poster);
 		// Capture ListView item click
-		itemView.setOnClickListener(new OnClickListener() {
+		convertView.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
@@ -97,6 +110,13 @@ public class ListViewAdapter extends BaseAdapter {
 
 			}
 		});
-		return itemView;
+		return convertView;
+	}
+	
+	private class CustomHolder{
+		TextView m_id;
+		TextView m_subtitle;
+		TextView m_date;
+		ImageView m_poster;
 	}
 }
