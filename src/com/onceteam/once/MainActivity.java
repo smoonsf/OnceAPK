@@ -44,9 +44,6 @@ public class MainActivity extends Activity implements
 	final public static String DATE = "date";
 	final public static String POSTER = "poster";
 	
-	
-
-	
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
 	 * navigation drawer.
@@ -61,11 +58,15 @@ public class MainActivity extends Activity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		// Splash이미지 띄
+		startActivity(new Intent(this, SplashActivity.class));
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
 		
-
+		
+		
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
@@ -73,11 +74,6 @@ public class MainActivity extends Activity implements
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
-		
-		
-		
-		
-		
 		
 	}
 
