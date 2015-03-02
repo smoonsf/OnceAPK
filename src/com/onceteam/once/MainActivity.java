@@ -56,8 +56,11 @@ public class MainActivity extends Activity implements
 	 */
 	private CharSequence mTitle;
 
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		// Splash이미지 띄
 		startActivity(new Intent(this, SplashActivity.class));
 		

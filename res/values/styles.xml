@@ -17,4 +17,9 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="CustomTheme">
+		<item name="android:windowActionBar">false</item>
+		<item name="android:windowTitleSize">0dp</item>
+	</style>
+    
 </resources>

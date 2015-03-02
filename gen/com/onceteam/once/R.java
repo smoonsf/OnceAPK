@@ -36,7 +36,12 @@ public final class R {
         public static final int drawer_shadow=0x7f020001;
         public static final int ic_drawer=0x7f020002;
         public static final int ic_launcher=0x7f020003;
-        public static final int temp_img=0x7f020004;
+        public static final int splash1=0x7f020004;
+        public static final int splash2=0x7f020005;
+        public static final int splash3=0x7f020006;
+        public static final int splash4=0x7f020007;
+        public static final int splash5=0x7f020008;
+        public static final int temp_img=0x7f020009;
     }
     public static final class id {
         public static final int action_example=0x7f090019;
@@ -51,6 +56,7 @@ public final class R {
         public static final int id_sv=0x7f090013;
         public static final int idlabel=0x7f09000a;
         public static final int idlabel_sv=0x7f090012;
+        public static final int imageView1=0x7f090003;
         public static final int listview_main=0x7f090005;
         public static final int listview_notice=0x7f090007;
         public static final int navigation_drawer=0x7f090002;
@@ -62,7 +68,6 @@ public final class R {
         public static final int subtitlelabel=0x7f09000c;
         public static final int subtitlelabel_sv=0x7f090014;
         public static final int text1=0x7f090008;
-        public static final int textView1=0x7f090003;
         public static final int title_notice=0x7f090010;
         public static final int webview=0x7f090004;
     }
@@ -128,5 +133,6 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
+        public static final int CustomTheme=0x7f070002;
     }
 }
