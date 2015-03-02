@@ -47,10 +47,10 @@ public class SplashActivity extends Activity {
 	    	
 	    };
 	    
-	    anim1.sendEmptyMessageDelayed(0,500);
+	    anim1.sendEmptyMessageDelayed(0,800);
 	    anim2.sendEmptyMessageDelayed(0,1000);
-	    anim3.sendEmptyMessageDelayed(0,1500);
-	    anim4.sendEmptyMessageDelayed(0,2000);
+	    anim3.sendEmptyMessageDelayed(0,1700);
+	    anim4.sendEmptyMessageDelayed(0,1850);
 	    
 	    Handler handler = new Handler() {
         	@Override
@@ -61,7 +61,7 @@ public class SplashActivity extends Activity {
         		overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         	}
         };
-        handler.sendEmptyMessageDelayed(0,3000);
+        handler.sendEmptyMessageDelayed(0,2000);
 	    
 	}
 	
