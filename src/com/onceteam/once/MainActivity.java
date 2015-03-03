@@ -122,13 +122,20 @@ public class MainActivity extends Activity implements
 					.commit();
 			break;
 		case 6:
+			fragmentManager
+					.beginTransaction()
+					.replace(R.id.container,
+							PlaceholderFragment.newInstance(position + 1))
+					.commit();
+			break;
+		case 7:
 			Context mContext;
             mContext =  getApplicationContext();
 			Intent intent = new Intent(mContext, WebViewActivity.class);
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			mContext.startActivity(intent);
 			break;
-		case 7:
+		case 8:
 			fragmentManager
 					.beginTransaction()
 					.replace(R.id.container,
@@ -224,13 +231,29 @@ public class MainActivity extends Activity implements
 				new DownloadMain(inflater.getContext(), rootView).execute();
 				
 				break;
+			case 3:
+				rootView = inflater.inflate(R.layout.fragment_cat1, container,
+						false);
+				break;
+			case 4:
+				rootView = inflater.inflate(R.layout.fragment_cat2, container,
+						false);
+				break;
+			case 5:
+				rootView = inflater.inflate(R.layout.fragment_cat3, container,
+						false);
+				break;
 			case 6:
+				rootView = inflater.inflate(R.layout.fragment_cat4, container,
+						false);
+				break;
+			case 7:
 				rootView = inflater.inflate(R.layout.fragment_notice,
 						container, false);
 				
 				new DownloadNotice(inflater.getContext(), rootView).execute();
 				break;
-			case 8:
+			case 9:
 				rootView = inflater.inflate(R.layout.fragment_contactus, container,
 						false);
 				break;

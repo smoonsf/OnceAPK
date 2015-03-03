@@ -62,7 +62,7 @@ public class DrawerAdapter extends BaseAdapter {
 			text.setTextSize(16);
 			text.setTypeface(null, Typeface.ITALIC);
 			text.setTextColor(Color.parseColor("#8F8F8F"));
-		} else if(position == 2 || position == 3 || position == 4){
+		} else if(position == 2 || position == 3 || position == 4 || position == 5){
 			itemView.setPadding(45, 25, 25, 25);
 			text.setTextSize(20);
 		} else {
