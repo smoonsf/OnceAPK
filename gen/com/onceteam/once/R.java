@@ -41,7 +41,7 @@ public final class R {
         public static final int splash3=0x7f020006;
         public static final int splash4=0x7f020007;
         public static final int splash5=0x7f020008;
-        public static final int temp_img=0x7f020009;
+        public static final int temp=0x7f020009;
     }
     public static final class id {
         public static final int action_example=0x7f090019;
