@@ -6,10 +6,11 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300sp"
+        android:layout_height="300sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="40sp"
         android:padding="0sp"
         android:src="@drawable/splash1" />
 
@@ -17,8 +18,9 @@
         android:id="@+id/praise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/logo"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="120sp"
         android:src="@drawable/praise" />
 
 </RelativeLayout>
