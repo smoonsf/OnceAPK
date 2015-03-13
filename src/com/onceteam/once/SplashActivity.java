@@ -4,11 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.Window;
 import android.widget.ImageView;
 
 public class SplashActivity extends Activity {
-
 	
 	
 	/** Called when the activity is first created. */
@@ -66,5 +64,7 @@ public class SplashActivity extends Activity {
 	}
 	
 	public void onBackPressed(){}
+	
+	
 
 }

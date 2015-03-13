@@ -15,6 +15,8 @@ import com.onceteam.json.myPagerAdapter;
 
 
 
+
+
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -31,8 +33,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 
 public class MainActivity extends Activity implements
@@ -43,6 +47,8 @@ public class MainActivity extends Activity implements
 	final public static String SUBTITLE = "subtitle";
 	final public static String DATE = "date";
 	final public static String POSTER = "poster";
+	
+	public static int pageNum = 0;
 	
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
@@ -285,6 +291,7 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 	JSONArray jsonarray;
 	ListView listview_main;
 	ViewPager premiumview;
+	RelativeLayout pagerIndicater;
 	
 	public DownloadMain(Context context, View rootView){
 		pvlist = new ArrayList<HashMap<String, String>>();
@@ -354,10 +361,35 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 
 	@Override
 	protected void onPostExecute(Void args) {
+		
+		
+		MainActivity.pageNum = pvlist.size();
 		ListViewAdapter LVa = new ListViewAdapter(mainlist);
 		listview_main.setAdapter(LVa);
 		myPagerAdapter mPa = new myPagerAdapter(ctx,pvlist);
 		premiumview.setAdapter(mPa);
+		
+		premiumview.setOnPageChangeListener(new OnPageChangeListener(){
+
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onPageSelected(int arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 		
 		mProgressDialog.dismiss();
 	}

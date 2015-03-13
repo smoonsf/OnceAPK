@@ -63,8 +63,8 @@ public final class R {
         public static final int listview_notice=0x7f090009;
         public static final int logo=0x7f090003;
         public static final int navigation_drawer=0x7f090002;
-        public static final int pager_mark=0x7f090008;
-        public static final int pager_premium=0x7f090007;
+        public static final int pager_mark=0x7f090007;
+        public static final int pager_premium=0x7f090008;
         public static final int poster=0x7f09000b;
         public static final int poster_sv=0x7f09001a;
         public static final int praise=0x7f090004;
