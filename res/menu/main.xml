@@ -3,7 +3,7 @@
     tools:context="com.onceteam.once.MainActivity" >
 
     <item
-        android:id="@+id/action_example"
+        android:id="@+id/action_search"
         android:showAsAction="ifRoom"
         android:title="@string/action_search"
         android:icon="@drawable/action_search"/>

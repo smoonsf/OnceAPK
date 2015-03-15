@@ -47,7 +47,7 @@ public final class R {
         public static final int temp=0x7f02000c;
     }
     public static final class id {
-        public static final int action_example=0x7f09001b;
+        public static final int action_search=0x7f09001b;
         public static final int container=0x7f090001;
         public static final int date=0x7f090011;
         public static final int date_notice=0x7f090013;

@@ -38,6 +38,7 @@
             android:name="SplashActivity"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"
             ></activity>
+        <activity android:name="SearchActivity"></activity>
     </application>
 
 </manifest>

@@ -17,6 +17,7 @@ import com.onceteam.json.myPagerAdapter;
 
 
 
+
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -39,6 +40,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 import android.widget.LinearLayout.LayoutParams;
 
 
@@ -194,7 +196,15 @@ public class MainActivity extends Activity implements
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
+		
+		if (item.getItemId() == R.id.action_search) {
+            Context mContext;
+            mContext =  getApplicationContext();
+			Intent intent = new Intent(mContext, SearchActivity.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			mContext.startActivity(intent);
+            return true;
+        }
 
 		return super.onOptionsItemSelected(item);
 	}
