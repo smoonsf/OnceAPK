@@ -35,8 +35,11 @@ import android.view.ViewGroup;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.LinearLayout.LayoutParams;
 
 
 public class MainActivity extends Activity implements
@@ -291,7 +294,8 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 	JSONArray jsonarray;
 	ListView listview_main;
 	ViewPager premiumview;
-	RelativeLayout pagerIndicater;
+	LinearLayout pageMark;
+	int mPrevPosition;
 	
 	public DownloadMain(Context context, View rootView){
 		pvlist = new ArrayList<HashMap<String, String>>();
@@ -301,6 +305,7 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 		rv = rootView;
 		listview_main = (ListView) rv.findViewById(R.id.listview_main);
 		premiumview = (ViewPager) rv.findViewById(R.id.pager_premium);
+		pageMark = (LinearLayout) rv.findViewById(R.id.pagemark);
 	}
 		
 	
@@ -369,6 +374,8 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 		myPagerAdapter mPa = new myPagerAdapter(ctx,pvlist);
 		premiumview.setAdapter(mPa);
 		
+		
+		
 		premiumview.setOnPageChangeListener(new OnPageChangeListener(){
 
 			@Override
@@ -384,14 +391,34 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 			}
 
 			@Override
-			public void onPageSelected(int arg0) {
-				// TODO Auto-generated method stub
-				
+			public void onPageSelected(int position) {
+				pageMark.getChildAt(mPrevPosition).setBackgroundResource(
+						R.drawable.page_not);
+				pageMark.getChildAt(position).setBackgroundResource(
+						R.drawable.page_select);
+				mPrevPosition = position;
 			}
 			
 		});
 		
+		initPageMark();
+		
 		mProgressDialog.dismiss();
+	}
+	
+	void initPageMark() {
+		for (int i = 0; i < pvlist.size(); i++) {
+			ImageView iv = new ImageView(ctx);
+			iv.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
+					LayoutParams.WRAP_CONTENT));
+			if (i == 0)
+				iv.setBackgroundResource(R.drawable.page_select);
+			else
+				iv.setBackgroundResource(R.drawable.page_not);
+			iv.setPadding(0, 0, 0, 0);
+			pageMark.addView(iv);
+		}
+		mPrevPosition = 0;
 	}
 }
 

@@ -14,16 +14,7 @@
         android:id="@+id/listview_main"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/pager_mark" />
-    
-    <RelativeLayout
-		android:id="@+id/pager_mark"
-		android:layout_centerHorizontal="true"
-		android:layout_alignEnd="@+id/pager_premium"
-		android:layout_alignRight="@+id/pager_premium"
-		android:layout_width="fill_parent"
-		android:layout_height="15sp"
-		 />    
+        android:layout_below="@+id/pager_premium" />
     
     <android.support.v4.view.ViewPager
 	    android:id="@+id/pager_premium"
@@ -32,5 +23,14 @@
 	    android:layout_alignParentTop="true"
 	    android:padding="0sp"
 	    />
+    
+    <LinearLayout
+		android:id="@+id/pagemark"
+		android:layout_alignBaseline="@+id/pager_premium"
+		android:orientation="horizontal" 
+		android:layout_width="fill_parent"
+		android:layout_height="15sp"
+		android:gravity="center"
+		android:padding="0sp" />
     
 </RelativeLayout>
