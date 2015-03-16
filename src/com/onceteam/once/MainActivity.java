@@ -18,6 +18,7 @@ import com.onceteam.json.myPagerAdapter;
 
 
 
+
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -33,14 +34,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 import android.widget.LinearLayout.LayoutParams;
 
 
@@ -78,6 +78,8 @@ public class MainActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		getActionBar().setDisplayShowHomeEnabled(false);
 		
 		
 		
@@ -158,23 +160,13 @@ public class MainActivity extends Activity implements
 	}
 
 	public void onSectionAttached(int number) {
-		switch (number) {
-		case 1:
-			mTitle = getString(R.string.title_section1);
-			break;
-		case 2:
-			mTitle = getString(R.string.title_section2);
-			break;
-		case 3:
-			mTitle = getString(R.string.title_section3);
-			break;
-		}
+		mTitle = "";
 	}
 
 	public void restoreActionBar() {
 		ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		actionBar.setDisplayShowTitleEnabled(true);
+		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setTitle(mTitle);
 	}
 
@@ -426,8 +418,10 @@ class DownloadMain extends AsyncTask<Void, Void, Void> {
 			else
 				iv.setBackgroundResource(R.drawable.page_not);
 			iv.setPadding(0, 0, 0, 0);
+			
 			pageMark.addView(iv);
 		}
+		pageMark.bringToFront();
 		mPrevPosition = 0;
 	}
 }

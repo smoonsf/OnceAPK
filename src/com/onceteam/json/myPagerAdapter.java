@@ -52,7 +52,7 @@ public class myPagerAdapter extends PagerAdapter {
 	
 	public Object instantiateItem(View pager, final int position) {
 		View v = null;
-		int resId = R.layout.item_listview;
+		int resId = R.layout.item_pvlist;
 		v = mInflater.inflate(resId, null);
 		
 		TextView id = (TextView) v.findViewById(R.id.id);
