@@ -80,21 +80,22 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int activity_splash=0x7f030001;
-        public static final int activity_webview=0x7f030002;
-        public static final int fragment_cat1=0x7f030003;
-        public static final int fragment_cat2=0x7f030004;
-        public static final int fragment_cat3=0x7f030005;
-        public static final int fragment_cat4=0x7f030006;
-        public static final int fragment_contactus=0x7f030007;
-        public static final int fragment_main=0x7f030008;
-        public static final int fragment_navigation_drawer=0x7f030009;
-        public static final int fragment_notice=0x7f03000a;
-        public static final int item_drawerlist=0x7f03000b;
-        public static final int item_listview=0x7f03000c;
-        public static final int item_noticelist=0x7f03000d;
-        public static final int item_pvlist=0x7f03000e;
-        public static final int item_singleview=0x7f03000f;
+        public static final int activity_search=0x7f030001;
+        public static final int activity_splash=0x7f030002;
+        public static final int activity_webview=0x7f030003;
+        public static final int fragment_cat1=0x7f030004;
+        public static final int fragment_cat2=0x7f030005;
+        public static final int fragment_cat3=0x7f030006;
+        public static final int fragment_cat4=0x7f030007;
+        public static final int fragment_contactus=0x7f030008;
+        public static final int fragment_main=0x7f030009;
+        public static final int fragment_navigation_drawer=0x7f03000a;
+        public static final int fragment_notice=0x7f03000b;
+        public static final int item_drawerlist=0x7f03000c;
+        public static final int item_listview=0x7f03000d;
+        public static final int item_noticelist=0x7f03000e;
+        public static final int item_pvlist=0x7f03000f;
+        public static final int item_singleview=0x7f030010;
     }
     public static final class menu {
         public static final int global=0x7f080000;
