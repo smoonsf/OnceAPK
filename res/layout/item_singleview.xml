@@ -5,29 +5,29 @@
     android:layout_height="fill_parent" >
 
     <TextView
-        android:id="@+id/idlabel_sv"
+        android:id="@+id/titlelabel_sv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/idlabel" />
+        android:text="@string/titlelabel" />
 
     <TextView
-        android:id="@+id/id_sv"
+        android:id="@+id/title_sv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/idlabel_sv" />
+        android:layout_toRightOf="@+id/titlelabel_sv" />
 
     <TextView
         android:id="@+id/subtitlelabel_sv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/idlabel_sv"
+        android:layout_below="@+id/titlelabel_sv"
         android:text="@string/subtitlelabel" />
 
     <TextView
         android:id="@+id/subtitle_sv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/id_sv"
+        android:layout_below="@+id/title_sv"
         android:layout_toRightOf="@+id/subtitlelabel_sv" />
 
     <TextView

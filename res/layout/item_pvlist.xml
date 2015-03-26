@@ -13,25 +13,25 @@
          />
     
     <TextView
-        android:id="@+id/idlabel"
+        android:id="@+id/titlelabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/idlabel"
+        android:text="@string/titlelabel"
         android:textColor="#FFFFFF"
          />
 
     <TextView
-        android:id="@+id/id"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/idlabel"
+        android:layout_toEndOf="@+id/titlelabel"
         android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/subtitlelabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/idlabel"
+        android:layout_below="@+id/titlelabel"
         android:text="@string/subtitlelabel"
         android:textColor="#FFFFFF" />
 
@@ -39,7 +39,7 @@
         android:id="@+id/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/id"
+        android:layout_below="@+id/title"
         android:layout_toEndOf="@+id/subtitlelabel"
         android:textColor="#FFFFFF" />
 

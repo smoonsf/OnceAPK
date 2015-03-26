@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="100sp"
     android:paddingLeft="2sp"
     android:paddingTop="1sp"
     android:paddingRight="2sp"
@@ -9,58 +9,50 @@
     
     <ImageView
         android:id="@+id/poster"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
         android:background="#000000"
-         />
-    
-    <TextView
-        android:id="@+id/idlabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/idlabel"
-        android:textColor="#FFFFFF"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="10sp"
+        android:layout_marginEnd="10sp"
          />
 
     <TextView
-        android:id="@+id/id"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/idlabel"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/subtitlelabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/idlabel"
-        android:text="@string/subtitlelabel"
-        android:textColor="#FFFFFF" />
+        android:layout_toRightOf="@+id/poster"
+        android:layout_alignParentTop="true"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/id"
-        android:layout_toRightOf="@+id/subtitlelabel"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/datelabel"
+        android:layout_below="@+id/title"
+        android:layout_toRightOf="@+id/poster"
+        android:textColor="#000000" />
+    
+    
+     <TextView
+        android:id="@+id/like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/subtitlelabel"
-        android:text="@string/datelabel"
-        android:textColor="#FFFFFF" />
+        android:layout_above="@+id/date"
+        android:layout_toRightOf="@+id/poster"
+        android:textColor="#000000" />
 
+    
+    
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/subtitle"
-        android:layout_toRightOf="@+id/datelabel"
-        android:textColor="#FFFFFF" />
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/poster"
+        android:textColor="#000000"
+         />
 
    
 

@@ -49,18 +49,15 @@ public final class R {
         public static final int temp=0x7f02000e;
     }
     public static final class id {
-        public static final int action_search=0x7f09001b;
+        public static final int action_search=0x7f09001c;
         public static final int container=0x7f090001;
-        public static final int date=0x7f090011;
-        public static final int date_notice=0x7f090013;
-        public static final int date_sv=0x7f090019;
-        public static final int datelabel=0x7f090010;
-        public static final int datelabel_sv=0x7f090018;
+        public static final int date=0x7f09000f;
+        public static final int date_notice=0x7f090011;
+        public static final int date_sv=0x7f09001a;
+        public static final int datelabel=0x7f090014;
+        public static final int datelabel_sv=0x7f090019;
         public static final int drawer_layout=0x7f090000;
-        public static final int id=0x7f09000d;
-        public static final int id_sv=0x7f090015;
-        public static final int idlabel=0x7f09000c;
-        public static final int idlabel_sv=0x7f090014;
+        public static final int like=0x7f09000e;
         public static final int listview_main=0x7f090006;
         public static final int listview_notice=0x7f090009;
         public static final int logo=0x7f090003;
@@ -68,14 +65,18 @@ public final class R {
         public static final int pagemark=0x7f090008;
         public static final int pager_premium=0x7f090007;
         public static final int poster=0x7f09000b;
-        public static final int poster_sv=0x7f09001a;
+        public static final int poster_sv=0x7f09001b;
         public static final int praise=0x7f090004;
-        public static final int subtitle=0x7f09000f;
-        public static final int subtitle_sv=0x7f090017;
-        public static final int subtitlelabel=0x7f09000e;
-        public static final int subtitlelabel_sv=0x7f090016;
+        public static final int subtitle=0x7f09000d;
+        public static final int subtitle_sv=0x7f090018;
+        public static final int subtitlelabel=0x7f090013;
+        public static final int subtitlelabel_sv=0x7f090017;
         public static final int text1=0x7f09000a;
-        public static final int title_notice=0x7f090012;
+        public static final int title=0x7f09000c;
+        public static final int title_notice=0x7f090010;
+        public static final int title_sv=0x7f090016;
+        public static final int titlelabel=0x7f090012;
+        public static final int titlelabel_sv=0x7f090015;
         public static final int webview=0x7f090005;
     }
     public static final class layout {
@@ -107,7 +108,6 @@ public final class R {
         public static final int app_name=0x7f060000;
         public static final int category=0x7f060002;
         public static final int datelabel=0x7f060010;
-        public static final int idlabel=0x7f06000e;
         public static final int navigation_drawer_close=0x7f06000b;
         public static final int navigation_drawer_open=0x7f06000a;
         public static final int subtitlelabel=0x7f06000f;
@@ -119,6 +119,7 @@ public final class R {
         public static final int title_section6=0x7f060007;
         public static final int title_section7=0x7f060008;
         public static final int title_section8=0x7f060009;
+        public static final int titlelabel=0x7f06000e;
     }
     public static final class style {
         /** 

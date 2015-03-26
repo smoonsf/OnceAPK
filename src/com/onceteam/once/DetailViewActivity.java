@@ -1,7 +1,5 @@
 package com.onceteam.once;
 
-import com.onceteam.json.ImageLoader;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -17,7 +15,7 @@ public class DetailViewActivity extends Activity {
 	String date;
 	String poster;
 	String position;
-	ImageLoader imageLoader = new ImageLoader(this);
+	
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -41,7 +39,7 @@ public class DetailViewActivity extends Activity {
 		
 		
  		// Locate the TextViews in singleitemview.xml
-		TextView txtid = (TextView) findViewById(R.id.id_sv);
+		TextView txtid = (TextView) findViewById(R.id.title_sv);
 		TextView txtsubtitle = (TextView) findViewById(R.id.subtitle_sv);
 		TextView txtdate = (TextView) findViewById(R.id.date_sv);
 		
@@ -58,7 +56,7 @@ public class DetailViewActivity extends Activity {
 		
  		// Capture position and set results to the ImageView
 		// Passes poster images URL into ImageLoader.class
-		imageLoader.DisplayImage(poster, imgposter);
+		
 
 	}
 
