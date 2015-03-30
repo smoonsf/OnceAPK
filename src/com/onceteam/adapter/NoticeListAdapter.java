@@ -1,10 +1,9 @@
 package com.onceteam.adapter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
-import com.onceteam.once.DetailViewActivity;
-import com.onceteam.once.MainActivity;
+import com.onceteam.model.Notice;
+import com.onceteam.once.DetailNoticeActivity;
 import com.onceteam.once.R;
 
 import android.content.Context;
@@ -19,28 +18,25 @@ import android.widget.TextView;
 public class NoticeListAdapter extends BaseAdapter {
 
 	
-	ArrayList<HashMap<String, String>> data;
-	HashMap<String, String> resultp = new HashMap<String, String>();
+	List<Notice> data;
+	Notice resultp;
 	
-	public NoticeListAdapter(ArrayList<HashMap<String, String>> arraylist){
+	public NoticeListAdapter(List<Notice> arraylist){
 		data = arraylist;
 	}
 	
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
 		return data.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
 		return data.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
 		return position;
 	}
 
@@ -52,7 +48,6 @@ public class NoticeListAdapter extends BaseAdapter {
 		TextView date = null;
 		CustomHolder holder = null;
 		
-
 		if(convertView == null){
 			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	        convertView = inflater.inflate(R.layout.item_noticelist, parent, false);
@@ -73,21 +68,17 @@ public class NoticeListAdapter extends BaseAdapter {
 		
 		resultp = data.get(position);
 		
-		title.setText(resultp.get("title"));
-		date.setText(resultp.get("date"));
+		title.setText(resultp.getTitle());
+		date.setText(resultp.getUpdated_at());
 		
 		convertView.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(context, DetailViewActivity.class);
-				// Pass all data title
-				intent.putExtra("title", resultp.get("title"));
-				// Pass all data content
-				intent.putExtra("content", resultp.get("content"));
-				// Pass all data date
-				intent.putExtra("date", resultp.get("date"));
-				// Start SingleItemView Class
+				Intent intent = new Intent(context, DetailNoticeActivity.class);
+				intent.putExtra("title", resultp.getTitle());
+				intent.putExtra("date", resultp.getUpdated_at());
+				intent.putExtra("content", resultp.getContent());
 				context.startActivity(intent);
 			}
 			

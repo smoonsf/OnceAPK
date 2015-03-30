@@ -6,11 +6,12 @@ import com.onceteam.model.Event;
 import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Path;
+import retrofit.http.Query;
 
 public interface EventService {
 
-    @GET("/event/?format=json")
-    void getEventList(Callback<List<Event>> callback);
+    @GET("/event/?format=json&limit=10")
+    void getEventList(@Query("offset") Integer offset, Callback<List<Event>> callback);
     
     @GET("/event/?premium=true&format=json")
     void getPremiumEventList(Callback<List<Event>> callback);
