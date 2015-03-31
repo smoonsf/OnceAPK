@@ -530,7 +530,8 @@ class getEventList extends AsyncTask<Void, Void, Void> {
 			}	
 		};
 			
-		viewpager_premium.startAutoScroll(6000);
+		viewpager_premium.setInterval(6000);
+		viewpager_premium.startAutoScroll();
 		
 		
 		
