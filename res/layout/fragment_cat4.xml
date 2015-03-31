@@ -1,8 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
+    android:padding="0sp"
+    tools:context="com.onceteam.once.MainActivity$PlaceholderFragment" >
 
-</LinearLayout>
+    
+    
+    <ListView
+        android:id="@+id/listview_main"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/pager_premium"
+        android:paddingLeft="25sp"
+        android:paddingRight="25sp" />
+    
+    
+    <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
+	    android:id="@+id/pager_premium"
+	    android:layout_width="fill_parent"
+	    android:layout_height="270sp"
+	    android:layout_alignParentTop="true"
+	    android:padding="0sp">
+        
+	    </cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager>
+   
+    
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+	    android:layout_height="270sp"
+	    android:layout_alignParentTop="true"
+	    android:padding="0sp"
+	    android:background="@drawable/gradient_effect"
+	    android:alpha="0.3"
+        >
+        
+        
+    </RelativeLayout>
+    
+    <LinearLayout
+		android:id="@+id/pagemark"
+		android:orientation="horizontal" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:layout_margin="20sp"
+		android:layout_above="@+id/listview_main"
+		/>
+   
+    
+</RelativeLayout>

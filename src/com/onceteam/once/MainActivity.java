@@ -12,6 +12,8 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.converter.GsonConverter;
 
+import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -27,11 +29,11 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -39,11 +41,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -99,6 +102,14 @@ public class MainActivity extends Activity implements
 		FragmentManager fragmentManager = getFragmentManager();
 		switch (position) {
 		case 0:
+			
+			fragmentManager
+					.beginTransaction()
+					.replace(R.id.container,
+							PlaceholderFragment.newInstance(position + 1))
+					.commit();
+			break;
+		case 1:
 			
 			fragmentManager
 					.beginTransaction()
@@ -241,27 +252,32 @@ public class MainActivity extends Activity implements
 			case 1:
 				rootView = inflater.inflate(R.layout.fragment_main, container,
 						false);
-				
-				new getEventList(inflater.getContext(), rootView).execute();
-				
-				
-				
+				new getEventList(0, inflater.getContext(), rootView).execute();
 				break;
-			case 3:
+			case 2:
 				rootView = inflater.inflate(R.layout.fragment_cat1, container,
 						false);
+				new getEventList(1, inflater.getContext(), rootView).execute();
 				break;
-			case 4:
+			case 3:
 				rootView = inflater.inflate(R.layout.fragment_cat2, container,
 						false);
+				new getEventList(2, inflater.getContext(), rootView).execute();
 				break;
-			case 5:
+			case 4:
 				rootView = inflater.inflate(R.layout.fragment_cat3, container,
 						false);
+				new getEventList(3, inflater.getContext(), rootView).execute();
 				break;
-			case 6:
+			case 5:
 				rootView = inflater.inflate(R.layout.fragment_cat4, container,
 						false);
+				new getEventList(4, inflater.getContext(), rootView).execute();
+				break;
+			case 6:
+				rootView = inflater.inflate(R.layout.fragment_cat5, container,
+						false);
+				new getEventList(5, inflater.getContext(), rootView).execute();
 				break;
 			case 7:
 				rootView = inflater.inflate(R.layout.fragment_notice,
@@ -301,7 +317,7 @@ class getEventList extends AsyncTask<Void, Void, Void> {
 	
 	List<Event> events;
 	List<Event> events_premium;
-	
+	Integer category;
 	
 	Boolean mLockListView;
 	Boolean END_FLAG = false;
@@ -309,21 +325,22 @@ class getEventList extends AsyncTask<Void, Void, Void> {
     ListViewAdapter lvadapter;
     myPagerAdapter pvadapter;
 	ListView listview_main;
-	ViewPager viewpager_premium; 
+	AutoScrollViewPager viewpager_premium; 
 	LinearLayout pageMark;
 	int mPrevPosition;
 	
 	View rootView;
 	Context context;
 
-	public getEventList(Context ctx, View rv){
+	public getEventList(Integer cat, Context ctx, View rv){
 		rootView = rv;
 		listview_main = (ListView) rootView.findViewById(R.id.listview_main);
-		viewpager_premium = (ViewPager) rootView.findViewById(R.id.pager_premium);
+		viewpager_premium = (AutoScrollViewPager) rootView.findViewById(R.id.pager_premium);
 		pageMark = (LinearLayout) rootView.findViewById(R.id.pagemark);
 		events = new ArrayList<Event>();
 		events_premium = new ArrayList<Event>();
 		context = ctx;
+		category = cat;
 	}
 	
 	@Override
@@ -350,24 +367,47 @@ class getEventList extends AsyncTask<Void, Void, Void> {
 	protected Void doInBackground(Void... params) {
 		mLockListView = true;
 		
-        eventService.getEventList(events.size(), new Callback<List<Event>>(){
-
-            @Override
-            public void success(List<Event> event1, Response not_using_response) {
-            	events.addAll(event1);
-            	lvadapter.notifyDataSetChanged();
-            	if(event1.size() == 0)
-            		END_FLAG = true;
-            	mLockListView = false;
-            }
-
-            @Override
-            public void failure(RetrofitError retrofitError) {
-                Log.d("retro3",retrofitError.getLocalizedMessage());
-            }
-
-			
-        });
+		
+		if(category == 0){
+	        eventService.getEventList(events.size(), new Callback<List<Event>>(){
+	
+	            @Override
+	            public void success(List<Event> event1, Response not_using_response) {
+	            	events.addAll(event1);
+	            	lvadapter.notifyDataSetChanged();
+	            	if(event1.size() == 0)
+	            		END_FLAG = true;
+	            	mLockListView = false;
+	            }
+	
+	            @Override
+	            public void failure(RetrofitError retrofitError) {
+	                Log.d("retro3",retrofitError.getLocalizedMessage());
+	            }
+	
+				
+	        });
+		}
+		else{
+			eventService.getCatEventList(category, events.size(), new Callback<List<Event>>(){
+				
+	            @Override
+	            public void success(List<Event> event1, Response not_using_response) {
+	            	events.addAll(event1);
+	            	lvadapter.notifyDataSetChanged();
+	            	if(event1.size() == 0)
+	            		END_FLAG = true;
+	            	mLockListView = false;
+	            }
+	
+	            @Override
+	            public void failure(RetrofitError retrofitError) {
+	                Log.d("retro3",retrofitError.getLocalizedMessage());
+	            }
+	
+				
+	        });
+		}
         
         eventService.getPremiumEventList(new Callback<List<Event>>(){
 
@@ -408,25 +448,42 @@ class getEventList extends AsyncTask<Void, Void, Void> {
                         && !END_FLAG)
                 {
                 	mLockListView = true;
-                	
-                	eventService.getEventList(events.size(), new Callback<List<Event>>(){
+                	if(category == 0){
+                		eventService.getEventList(events.size(), new Callback<List<Event>>(){
 
-                        @Override
-                        public void success(List<Event> event1, Response not_using_response) {
-                        	events.addAll(event1);
-                        	lvadapter.notifyDataSetChanged();
-                        	if(event1.size() == 0)
-                        		END_FLAG = true;
-                        	mLockListView = false;
-                        }
+                            @Override
+                            public void success(List<Event> event1, Response not_using_response) {
+                            	events.addAll(event1);
+                            	lvadapter.notifyDataSetChanged();
+                            	if(event1.size() == 0)
+                            		END_FLAG = true;
+                            	mLockListView = false;
+                            }
 
-                        @Override
-                        public void failure(RetrofitError retrofitError) {
-                            Log.d("retro3",retrofitError.getLocalizedMessage());
-                        }
+                            @Override
+                            public void failure(RetrofitError retrofitError) {
+                                Log.d("retro3",retrofitError.getLocalizedMessage());
+                            }
+                        });
+                	}
+                	else {
+                		eventService.getCatEventList(category, events.size(), new Callback<List<Event>>(){
 
-            			
-                    });
+                            @Override
+                            public void success(List<Event> event1, Response not_using_response) {
+                            	events.addAll(event1);
+                            	lvadapter.notifyDataSetChanged();
+                            	if(event1.size() == 0)
+                            		END_FLAG = true;
+                            	mLockListView = false;
+                            }
+
+                            @Override
+                            public void failure(RetrofitError retrofitError) {
+                                Log.d("retro3",retrofitError.getLocalizedMessage());
+                            }
+                        });
+                	}
                 }
             }
 		});
@@ -460,7 +517,21 @@ class getEventList extends AsyncTask<Void, Void, Void> {
 			
 		});
 		
-
+		
+		Handler autoSlide = new Handler();
+		Runnable r = new Runnable(){
+			@Override
+			public void run() {
+				int item = viewpager_premium.getCurrentItem();
+				if(item == events_premium.size() - 1)
+					viewpager_premium.setCurrentItem(0, true);
+				else
+					viewpager_premium.setCurrentItem(item + 1, true);
+			}	
+		};
+			
+		viewpager_premium.startAutoScroll(6000);
+		
 		
 		
 	}
@@ -498,14 +569,14 @@ class getNoticeList extends AsyncTask<Void, Void, Void> {
 	Boolean END_FLAG = false;
     
     NoticeListAdapter nladapter;
-	ListView listview_notice;
+	ExpandableListView listview_notice;
 	
 	View rootView;
 	Context context;
 
 	public getNoticeList(Context ctx, View rv){
 		rootView = rv;
-		listview_notice = (ListView) rootView.findViewById(R.id.listview_notice);
+		listview_notice = (ExpandableListView) rootView.findViewById(R.id.listview_notice);
 		notices = new ArrayList<Notice>();
 		context = ctx;
 	}
@@ -530,7 +601,7 @@ class getNoticeList extends AsyncTask<Void, Void, Void> {
 	protected Void doInBackground(Void... params) {
 		mLockListView = true;
 		
-        noticeService.getNoticeList(new Callback<List<Notice>>(){
+        noticeService.getNoticeList(notices.size(), new Callback<List<Notice>>(){
 
             @Override
             public void success(List<Notice> notice1, Response not_using_response) {
@@ -556,89 +627,47 @@ class getNoticeList extends AsyncTask<Void, Void, Void> {
 	protected void onPostExecute(Void args){
 		nladapter = new NoticeListAdapter(notices);
 		listview_notice.setAdapter(nladapter);
+		listview_notice.setOnScrollListener(new OnScrollListener(){
+
+			@Override
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+				
+			}
+
+			@Override
+			public void onScroll(AbsListView view, int firstVisibleItem,
+					int visibleItemCount, int totalItemCount) {
+				int count = totalItemCount - visibleItemCount;
+
+                if(firstVisibleItem >= count && totalItemCount != 0 && !mLockListView
+                        && !END_FLAG)
+                {
+                	mLockListView = true;
+                	
+                	noticeService.getNoticeList(notices.size(), new Callback<List<Notice>>(){
+
+                        @Override
+                        public void success(List<Notice> notice1, Response not_using_response) {
+                        	notices.addAll(notice1);
+                        	nladapter.notifyDataSetChanged();
+                        	if(notice1.size() == 0)
+                        		END_FLAG = true;
+                        	mLockListView = false;
+                        }
+
+                        @Override
+                        public void failure(RetrofitError retrofitError) {
+                            Log.d("retro3",retrofitError.getLocalizedMessage());
+                        }
+
+            			
+                    });
+                }
+			}
+			
+		});
 		
 		
 	}
 	
 }
-
-
-
-
-//class DownloadNotice extends AsyncTask<Void, Void, Void> {
-//	
-//	Context ctx;
-//	View rv;
-//	ArrayList<HashMap<String, String>> noticelist;
-//	ProgressDialog mProgressDialog;
-//	JSONObject jsonobject;
-//	JSONArray jsonarray;
-//	ListView listview_notice;
-//
-//	
-//	public DownloadNotice(Context context, View rootView){
-//		noticelist = new ArrayList<HashMap<String, String>>();
-//		ctx = context;
-//		rv = rootView;
-//		listview_notice = (ListView) rv.findViewById(R.id.listview_notice);
-//	}
-//		
-//	
-//	@Override
-//	protected void onPreExecute() {
-//		super.onPreExecute();
-//		// Create a progressdialog
-//		mProgressDialog = new ProgressDialog(ctx);
-//		// Set progressdialog title
-//		mProgressDialog.setTitle("공지사항을 받고 있습니다.");
-//		// Set progressdialog message
-//		mProgressDialog.setMessage("Loading...");
-//		mProgressDialog.setIndeterminate(false);
-//		// Show progressdialog
-//		mProgressDialog.show();
-//	}
-//
-//	@Override
-//	protected Void doInBackground(Void... params) {
-//		
-//		
-//
-//		try {
-//			// Locate the array name in JSON
-//			
-//			jsonarray = new JSONArray(
-//					JSONfunctions
-//							.GET("http://once-server.herokuapp.com/api/notices"));
-//			
-//			
-//
-//			for (int i = 0; i < jsonarray.length(); i++) {
-//				HashMap<String, String> map = new HashMap<String, String>();
-//				jsonobject = jsonarray.getJSONObject(i);
-//				// Retrive JSON Objects
-//				map.put("title", jsonobject.getString("title"));
-//				map.put("content",
-//						jsonobject.getString("content"));
-//				map.put("date",
-//						jsonobject.getString("date"));
-//				
-//				// Set the JSON Objects into the array
-//				noticelist.add(map);
-//				
-//				
-//			}
-//		} catch (JSONException e) {
-//			Log.e("Error", e.getMessage());
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
-//
-//	@Override
-//	protected void onPostExecute(Void args) {
-//		NoticeListAdapter NLa = new NoticeListAdapter(noticelist);
-//		listview_notice.setAdapter(NLa);
-//
-//		mProgressDialog.dismiss();
-//	}
-//}

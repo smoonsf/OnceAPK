@@ -3,14 +3,18 @@ package com.onceteam.adapter;
 import java.util.List;
 
 import com.onceteam.model.Event;
+import com.onceteam.once.DetailEventActivity;
 import com.onceteam.once.R;
 import com.squareup.picasso.Picasso;
 
+import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
+
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -66,12 +70,21 @@ public class myPagerAdapter extends PagerAdapter {
 		.placeholder(R.drawable.temp)
 		.into(poster);
 		
-		((ViewPager) pager).addView(v, null);
+		v.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(context, DetailEventActivity.class);
+				intent.putExtra("id", resultp.getId());
+				context.startActivity(intent);
+			}
+		});
+		
+		((AutoScrollViewPager) pager).addView(v, null);
 		
 		return v;
 	}
 	
 	public void destroyItem(View pager, int position, Object view) {
-		((ViewPager) pager).removeView((View) view);
+		((AutoScrollViewPager) pager).removeView((View) view);
 	}
 }

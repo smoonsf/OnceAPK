@@ -1,5 +1,7 @@
 package com.onceteam.adapter;
 
+import com.onceteam.once.R;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -7,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class DrawerAdapter extends BaseAdapter {
@@ -21,6 +25,13 @@ public class DrawerAdapter extends BaseAdapter {
 		arrayData = arrayD;
 		resource = rId;
 		mFieldId = mFId;
+	}
+	
+	@Override
+	public boolean isEnabled(int position) {
+//		if(position==7)
+//			return false;
+		return true;
 	}
 	
 	@Override
@@ -44,36 +55,53 @@ public class DrawerAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		
-		TextView text;
+		TextView text = null;
+		ImageView logo = null;
+		CustomHolder holder = null;
 		minf = LayoutInflater.from(context);
-		View itemView;
+		
 		
 		
 		if(convertView == null){
-			itemView = minf.inflate(resource, parent, false);
+			convertView = minf.inflate(resource, parent, false);
+			text = (TextView) convertView.findViewById(mFieldId);
+			logo = (ImageView) convertView.findViewById(R.id.logo);
+			holder = new CustomHolder();
+			holder.m_text=text;
+			holder.m_logo=logo;
+			convertView.setTag(holder);
+			
 		} else{
-			itemView = convertView;
-		}
-		
-		text = (TextView) itemView.findViewById(mFieldId);
-		text.setText(arrayData[position]);
-		if(position == 1){
-			text.setPadding(10,10,10,10);
-			text.setTextSize(16);
-			text.setTypeface(null, Typeface.ITALIC);
-			text.setTextColor(Color.parseColor("#8F8F8F"));
-		} else if(position == 2 || position == 3 || position == 4 || position == 5){
-			itemView.setPadding(45, 25, 25, 25);
-			text.setTextSize(20);
-		} else {
-			itemView.setPadding(30, 30, 30, 30);
-			text.setTextSize(25);
+			holder = (CustomHolder) convertView.getTag();
+			text = holder.m_text;
+			logo = holder.m_logo;
 			
 		}
 		
 		
-		
-		return itemView;
-	}
+		RelativeLayout.LayoutParams params = (android.widget.RelativeLayout.LayoutParams) logo.getLayoutParams();
+		if(position==0){
+			params.width = 270;
+			params.height = 270;
+			logo.setImageResource(R.drawable.once_logo);
+			logo.setLayoutParams(params);
 
+		}
+		
+		text.setText(arrayData[position]);
+		
+		
+		convertView.setPadding(120, 30, 30, 30);
+		text.setTextSize(20);
+		text.setTextColor(Color.parseColor("#A6A9AB"));
+		
+		
+		return convertView;
+	}
+	
+	private class CustomHolder{
+		TextView m_text;
+		ImageView m_logo;
+	}
+	
 }

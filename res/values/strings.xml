@@ -2,15 +2,16 @@
 <resources>
 
     <string name="app_name">Once</string>
-    <string name="title_section1">Once Home</string>
+    <string name="title_home">Once Home</string>
     <string name="category">카테고리</string>
-    <string name="title_section2">카테고리1</string>
-    <string name="title_section3">카테고리2</string>
-    <string name="title_section4">카테고리3</string>
-    <string name="title_section5">카테고리4</string>
-    <string name="title_section6">공지사항</string>
-    <string name="title_section7">로그인</string>
-    <string name="title_section8">Contact us</string>
+    <string name="title_category1">페스티발</string>
+    <string name="title_category2">일일호프</string>
+    <string name="title_category3">상점내행사</string>
+    <string name="title_category4">플리마켓</string>
+    <string name="title_category5">공연</string>
+    <string name="title_notice">공지사항</string>
+    <string name="title_login">로그인</string>
+    <string name="title_contact">Contact us</string>
     
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

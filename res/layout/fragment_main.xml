@@ -16,14 +16,14 @@
         android:paddingRight="25sp" />
     
     
-    <android.support.v4.view.ViewPager
+    <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
 	    android:id="@+id/pager_premium"
 	    android:layout_width="fill_parent"
 	    android:layout_height="270sp"
 	    android:layout_alignParentTop="true"
 	    android:padding="0sp">
         
-	    </android.support.v4.view.ViewPager>
+	    </cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager>
    
     
     <RelativeLayout 
@@ -34,8 +34,6 @@
 	    android:background="@drawable/gradient_effect"
 	    android:alpha="0.3"
         >
-        
-        
     </RelativeLayout>
     
     <LinearLayout

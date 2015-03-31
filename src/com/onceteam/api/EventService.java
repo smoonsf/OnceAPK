@@ -10,10 +10,13 @@ import retrofit.http.Query;
 
 public interface EventService {
 
-    @GET("/event/?format=json&limit=10")
+    @GET("/event/?format=json&order_by=date&limit=10")
     void getEventList(@Query("offset") Integer offset, Callback<List<Event>> callback);
     
-    @GET("/event/?premium=true&format=json")
+    @GET("/event/?format=json&order_by=date&limit=10")
+    void getCatEventList(@Query("category") Integer cat, @Query("offset") Integer offset, Callback<List<Event>> callback);
+    
+    @GET("/event/?premium=true&order_by=date&format=json")
     void getPremiumEventList(Callback<List<Event>> callback);
 
     @GET("/event/{event_id}/?format=json")

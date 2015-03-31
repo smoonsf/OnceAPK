@@ -18,6 +18,7 @@ public class Event {
 	private String image_pv;
 	private String image_thumnail;
 	private String resource_uri;
+	private String homepage;
 	private Boolean premium;
 	
 	
@@ -32,6 +33,7 @@ public class Event {
     public String getImage_pv() { return image_pv; }
     public String getImage_thumbnail() { return image_thumnail; }
     public String getUri() { return resource_uri; }
+    public String getHomepage() { return homepage; }
     public Boolean getPremium() { return premium; }
 }
 

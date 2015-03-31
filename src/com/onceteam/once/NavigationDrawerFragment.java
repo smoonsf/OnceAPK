@@ -103,15 +103,15 @@ public class NavigationDrawerFragment extends Fragment {
         });
         
         mDrawerArray = new String[]{
-                getString(R.string.title_section1),
-                getString(R.string.category),
-                getString(R.string.title_section2),
-                getString(R.string.title_section3),
-                getString(R.string.title_section4),
-                getString(R.string.title_section5),
-                getString(R.string.title_section6),
-                getString(R.string.title_section7),
-                getString(R.string.title_section8)
+                getString(R.string.title_home),
+                getString(R.string.title_category1),
+                getString(R.string.title_category2),
+                getString(R.string.title_category3),
+                getString(R.string.title_category4),
+                getString(R.string.title_category5),
+                getString(R.string.title_notice),
+                getString(R.string.title_login),
+                getString(R.string.title_contact)
         };
         
         mDrawerAdapter = new DrawerAdapter(getActionBar().getThemedContext(), R.layout.item_drawerlist,
@@ -206,22 +206,16 @@ public class NavigationDrawerFragment extends Fragment {
 
     private void selectItem(int position) {
     	int mPrePosition = mCurrentSelectedPosition;
-    	if(position!=1){
-	    	mCurrentSelectedPosition = position;
-	        if (mDrawerListView != null) {
-	            mDrawerListView.setItemChecked(position, true);
-	        }
-	        if (mDrawerLayout != null) {
-	            mDrawerLayout.closeDrawer(mFragmentContainerView);
-	        }
-	        if (mCallbacks != null) {
-	            mCallbacks.onNavigationDrawerItemSelected(position);
-	        }
-    	} else {
-    		if (mDrawerListView != null) {
-	            mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
-	        }
-    	}
+    	mCurrentSelectedPosition = position;
+        if (mDrawerListView != null) {
+            mDrawerListView.setItemChecked(position, true);
+        }
+        if (mDrawerLayout != null) {
+            mDrawerLayout.closeDrawer(mFragmentContainerView);
+        }
+        if (mCallbacks != null) {
+            mCallbacks.onNavigationDrawerItemSelected(position);
+        }
     }
 
     @Override

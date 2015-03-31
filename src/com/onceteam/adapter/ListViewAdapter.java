@@ -3,12 +3,15 @@ package com.onceteam.adapter;
 import java.util.List;
 
 import com.onceteam.model.Event;
+import com.onceteam.once.DetailEventActivity;
 import com.onceteam.once.R;
 import com.squareup.picasso.Picasso;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -82,9 +85,18 @@ public class ListViewAdapter extends BaseAdapter {
 		date.setText(resultp.getDate());
 		
 		Picasso.with(context)
-				.load(resultp.getImage())
+				.load(resultp.getImage_thumbnail())
 				.placeholder(R.drawable.temp)
 				.into(poster);
+		
+		convertView.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(context, DetailEventActivity.class);
+				intent.putExtra("id", resultp.getId());
+				context.startActivity(intent);
+			}
+		});
 		
 		return convertView;
 	}

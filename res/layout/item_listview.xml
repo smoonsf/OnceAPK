@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/poster"
         android:layout_alignParentTop="true"
-        android:textColor="#000000" />
+        android:textColor="#221E1F" />
 
     <TextView
         android:id="@+id/subtitle"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
         android:layout_toRightOf="@+id/poster"
-        android:textColor="#000000" />
+        android:textColor="#BBBDBF" />
     
     
      <TextView
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/date"
         android:layout_toRightOf="@+id/poster"
-        android:textColor="#000000" />
+        android:textColor="#BBBDBF" />
 
     
     
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/poster"
-        android:textColor="#000000"
+        android:textColor="#00C1F3"
          />
 
    

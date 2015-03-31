@@ -12,8 +12,8 @@ import retrofit.http.Query;
 
 public interface NoticeService {
 	
-	@GET("/notice/?format=json")
-    void getNoticeList(Callback<List<Notice>> callback);
+	@GET("/notice/?format=json&order_by=-updated_at&limit=10")
+    void getNoticeList(@Query("offset") Integer offset, Callback<List<Notice>> callback);
 
     @GET("/notice/{notice_id}/?format=json")
     void getNotice(@Path("notice_id") Integer notice_id, Callback<Notice> callback);

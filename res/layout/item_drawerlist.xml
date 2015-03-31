@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/text1"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textAppearance="?android:attr/textAppearanceListItemSmall"
     android:gravity="center_vertical"
     android:background="?android:attr/activatedBackgroundIndicator"
-     />
+    android:layout_margin="5sp">
+	
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="0sp"
+    	android:layout_height="0sp"
+    	android:layout_alignParentTop="true"
+    	android:layout_centerHorizontal="true"
+    	/>
+    
+    <TextView 
+	    android:id="@+id/text1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_below="@+id/logo"
+	    android:textSize="20sp"
+	    />
+    
+    
+</RelativeLayout>
+
