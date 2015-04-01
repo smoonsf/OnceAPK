@@ -13,10 +13,9 @@ public class Event {
 	private String created_at;
 	private Integer hits;
 	private Integer likes;
-	private List<Eventimage> eventimage;
-	private String image;
+	private List<EventImage> eventimage;
 	private String image_pv;
-	private String image_thumnail;
+	private String image_thumbnail;
 	private String resource_uri;
 	private String homepage;
 	private Boolean premium;
@@ -29,18 +28,10 @@ public class Event {
     public String getDate() { return date; }
     public String getUpdated_at() { return updated_at; }
     public String getCategory() { return category; }
-    public String getImage() { return image; }
     public String getImage_pv() { return image_pv; }
-    public String getImage_thumbnail() { return image_thumnail; }
+    public String getImage_thumbnail() { return image_thumbnail; }
     public String getUri() { return resource_uri; }
     public String getHomepage() { return homepage; }
     public Boolean getPremium() { return premium; }
-}
-
-class Eventimage {
-	private String id;
-	private String image;
-	private String image_pv;
-	private String image_thumbnail;
-	private String resource_uri;
+    public List<EventImage> getEventimage(){ return eventimage; }
 }

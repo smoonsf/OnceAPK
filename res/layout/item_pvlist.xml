@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="240sp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="0sp" >
     
     <ImageView
@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:background="#FFFFFF"
          />
     
@@ -25,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/titlelabel"
+        android:layout_toRightOf="@+id/titlelabel"
         android:textColor="#FFFFFF" />
 
     <TextView
@@ -41,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
         android:layout_toEndOf="@+id/subtitlelabel"
+        android:layout_toRightOf="@+id/subtitlelabel"
         android:textColor="#FFFFFF" />
 
     <TextView
@@ -57,6 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/subtitle"
         android:layout_toEndOf="@+id/datelabel"
+        android:layout_toRightOf="@+id/datelabel"
         android:textColor="#FFFFFF" />
 
    

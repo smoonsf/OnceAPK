@@ -15,12 +15,12 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        
     </style>
 
-   <style name="TranslucentStatusBar" parent="@android:style/Theme.Holo.Light">
+    
+    <style name="TranslucentStatusBar" parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/TranslucentActionBar</item>
-        <item name="android:windowTranslucentNavigation">false</item>
-        <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
 

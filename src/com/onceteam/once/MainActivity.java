@@ -11,7 +11,6 @@ import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.converter.GsonConverter;
-
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
 import com.google.gson.Gson;
@@ -40,6 +39,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
@@ -74,15 +74,15 @@ public class MainActivity extends Activity implements
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
+		getActionBar().setDisplayShowHomeEnabled(false);
 		// Splash이미지 띄
 		startActivity(new Intent(this, SplashActivity.class));
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		getActionBar().setDisplayShowHomeEnabled(false);
 		
 		
 		

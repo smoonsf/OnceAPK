@@ -15,23 +15,25 @@
    
     
     <RelativeLayout 
-        android:layout_width="fill_parent"
-	    android:layout_height="270sp"
-	    android:layout_alignParentTop="true"
-	    android:padding="0sp"
-	    android:background="@drawable/gradient_effect"
-	    android:alpha="0.3"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@+id/viewpager_image"
+    	android:id="@+id/frame"
         >
-    </RelativeLayout>
-    
-    <TextView 
+        
+        <TextView 
         android:layout_width="wrap_content"
    		android:layout_height="50sp"
    		android:layout_margin="10sp"
+   		android:layout_alignParentTop="true"
+   		android:layout_centerHorizontal="true"
    		android:textSize="30sp"
    		android:id="@+id/title"
-   		android:layout_below="@+id/viewpager_image"
+   		android:text="이벤트 제목"
         />
+        
+    </RelativeLayout>
+    
     
     <LinearLayout
 		android:id="@+id/pagemark"
@@ -40,7 +42,7 @@
 		android:layout_height="wrap_content"
 		android:gravity="center"
 		android:layout_margin="20sp"
-		android:layout_above="@+id/title"
+		android:layout_above="@+id/frame"
 		/>
     
     
