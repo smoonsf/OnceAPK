@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import com.sinchontycoon.once.R;
 
 public class WebViewActivity extends Activity {
 
@@ -17,7 +18,7 @@ public class WebViewActivity extends Activity {
 	    setContentView(R.layout.activity_webview);
 
 	    mWV = (WebView) findViewById(R.id.webview);
-	    mWV.loadUrl("http://once-server.herokuapp.com/users/sign_in");
+	    mWV.loadUrl("http://54.92.64.176/not_yet/");
 	    mWV.setWebViewClient(new myWebViewClient());
 	    
 	    

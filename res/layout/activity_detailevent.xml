@@ -12,29 +12,7 @@
 	    android:padding="0sp">
         
 	    </cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager>
-   
-    
-    <RelativeLayout 
-        android:layout_width="match_parent"
-    	android:layout_height="wrap_content"
-    	android:layout_below="@+id/viewpager_image"
-    	android:id="@+id/frame"
-        >
-        
-        <TextView 
-        android:layout_width="wrap_content"
-   		android:layout_height="50sp"
-   		android:layout_margin="10sp"
-   		android:layout_alignParentTop="true"
-   		android:layout_centerHorizontal="true"
-   		android:textSize="30sp"
-   		android:id="@+id/title"
-   		android:text="이벤트 제목"
-        />
-        
-    </RelativeLayout>
-    
-    
+	    
     <LinearLayout
 		android:id="@+id/pagemark"
 		android:orientation="horizontal" 
@@ -42,8 +20,140 @@
 		android:layout_height="wrap_content"
 		android:gravity="center"
 		android:layout_margin="20sp"
-		android:layout_above="@+id/frame"
+		android:layout_above="@+id/scrollview"
 		/>
+    
+    <ScrollView 
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:fillViewport="true"
+    	android:layout_below="@+id/viewpager_image"
+    	android:padding="0sp"
+    	android:id="@+id/scrollview"
+    	>
+        
+        <RelativeLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:id="@+id/contentframe"
+    	android:padding="8sp"
+        >
+        
+        <TextView 
+	        android:layout_width="wrap_content"
+	   		android:layout_height="wrap_content"
+	   		android:layout_margin="10sp"
+	   		android:layout_alignParentTop="true"
+	   		android:layout_centerHorizontal="true"
+	   		android:textSize="30sp"
+	   		android:id="@+id/title"
+	        />
+        
+        <TextView 
+	        android:layout_width="wrap_content"
+	   		android:layout_height="wrap_content"
+	   		android:layout_margin="10sp"
+	   		android:layout_below="@+id/title"
+	   		android:layout_centerHorizontal="true"
+	   		android:textSize="12sp"
+	   		android:id="@+id/dday"
+	   		 />
+   		
+        <TextView 
+	        android:layout_width="wrap_content"
+	   		android:layout_height="wrap_content"
+	   		android:layout_margin="10sp"
+	   		android:layout_below="@+id/dday"
+	   		android:layout_toLeftOf="@+id/date"
+	   		android:layout_centerHorizontal="true"
+	   		android:textSize="12sp"
+	   		android:id="@+id/like"
+	   		 />
+        
+   		<TextView 
+	        android:layout_width="wrap_content"
+	   		android:layout_height="wrap_content"
+	   		android:layout_margin="10sp"
+	   		android:layout_below="@+id/dday"
+	   		android:layout_centerHorizontal="true"
+	   		android:textSize="12sp"
+	   		android:id="@+id/date"
+	   		
+	        />
+   		
+   		<Button 
+   		    android:id="@+id/btn_like"
+   		    android:layout_width="100sp"
+	   		android:layout_height="40sp"
+	   		android:layout_margin="5sp"
+	   		android:layout_below="@+id/date"
+	   		android:layout_toLeftOf="@+id/btn_share"
+	   		android:background="@drawable/selector_btn_detailview"
+	   		android:drawableLeft="@drawable/heart"
+	   		android:gravity="center_vertical"
+	   		android:text="가고싶어요"
+	   		android:textSize="14sp"
+	   		android:drawablePadding="8sp"
+	   		/>
+   		<Button 
+   		    android:id="@+id/btn_share"
+   		    android:layout_width="100sp"
+	   		android:layout_height="40sp"
+	   		android:layout_margin="5sp"
+	   		android:layout_below="@+id/date"
+	   		android:layout_centerHorizontal="true"
+	   		android:background="@drawable/selector_btn_detailview"
+	   		android:drawableLeft="@drawable/share"
+	   		android:gravity="center_vertical"
+	   		android:text="공유하기"
+	   		android:textSize="14sp"
+	   		android:drawablePadding="8sp"
+	   		/>
+   		<Button 
+   		    android:id="@+id/btn_reply"
+   		    android:layout_width="100sp"
+	   		android:layout_height="40sp"
+	   		android:layout_margin="5sp"
+	   		android:layout_below="@+id/date"
+	   		android:layout_toRightOf="@+id/btn_share"
+	   		android:background="@drawable/selector_btn_detailview"
+	   		android:drawableLeft="@drawable/reply"
+	   		android:gravity="center_vertical"
+	   		android:text="댓글달기"
+	   		android:textSize="14sp"
+	   		android:drawablePadding="8sp"
+	   		
+	   		/>
+        
+   		<TextView 
+   		    android:id="@+id/content"
+   		    android:layout_width="match_parent"
+	   		android:layout_height="wrap_content"
+	   		android:layout_margin="10sp"
+	   		android:layout_below="@+id/btn_share"
+	   		/>
+   		
+   		<Button 
+   		    android:id="@+id/btn_homepage"
+   		    android:layout_width="180sp"
+	   		android:layout_height="wrap_content"
+	   		android:layout_margin="10sp"
+	   		android:layout_below="@+id/content"
+	   		android:layout_centerHorizontal="true"
+	   		android:gravity="center"
+	   		android:background="@drawable/btn_homepage"
+	   		android:text="사이트 이동   >"
+	   		android:textColor="#16BAEF"
+	   		/>
+  		
+    </RelativeLayout>
+        
+        
+    </ScrollView>
+   
+    
+   
+    
     
     
 

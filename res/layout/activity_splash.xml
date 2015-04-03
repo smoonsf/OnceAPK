@@ -23,4 +23,11 @@
         android:layout_marginBottom="170sp"
         android:src="@drawable/praise" />
 
+    <TextView 
+        android:id="@+id/packagename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        />
+    
 </RelativeLayout>

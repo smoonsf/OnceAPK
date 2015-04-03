@@ -1,10 +1,12 @@
 package com.onceteam.adapter;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.onceteam.model.Notice;
-import com.onceteam.once.DetailNoticeActivity;
-import com.onceteam.once.R;
+import com.sinchontycoon.once.R;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,7 +24,7 @@ public class NoticeListAdapter extends BaseExpandableListAdapter {
 	
 	List<Notice> data;
 	Notice resultp;
-	
+
 	public NoticeListAdapter(List<Notice> arraylist){
 		data = arraylist;
 	}
@@ -74,6 +76,8 @@ public class NoticeListAdapter extends BaseExpandableListAdapter {
 			View convertView, ViewGroup parent) {
 		final Context context = parent.getContext();
 		
+		Boolean NEW_FLAG = false;
+		
 		TextView title = null;
 		TextView date = null;
 		ImageView arrow = null;
@@ -104,12 +108,23 @@ public class NoticeListAdapter extends BaseExpandableListAdapter {
 		resultp = data.get(groupPosition);
 		
 		title.setText(resultp.getTitle());
-		date.setText(resultp.getUpdated_at());
+		date.setText(resultp.getUpdated_at().substring(2, 10));
+		
+		
+		if(Dday(resultp.getUpdated_at().substring(0, 10))<7)
+			NEW_FLAG = true;
+		
 		
 		if(isExpanded){
-			
+			if(NEW_FLAG)
+				arrow.setImageResource(R.drawable.notice_yellow_select);
+			else
+				arrow.setImageResource(R.drawable.notice_black_select);
 		}else{
-			
+			if(NEW_FLAG)
+				arrow.setImageResource(R.drawable.notice_yellow_normal);
+			else
+				arrow.setImageResource(R.drawable.notice_black_normal);
 		}
 		
 		return convertView;
@@ -153,4 +168,23 @@ public class NoticeListAdapter extends BaseExpandableListAdapter {
 		TextView m_date;
 		TextView m_content;
 	}
+	
+	long Dday(String mday) {
+        if (mday == null )
+            return 0;
+        mday = mday.trim();
+        int first = mday.indexOf("-");
+        int last = mday.lastIndexOf("-");
+        int year = Integer.parseInt(mday.substring(0 , first ));
+        int month = Integer.parseInt(mday.substring(first + 1 , last ));
+        int day = Integer.parseInt(mday.substring( last + 1 , mday.length()));
+
+        GregorianCalendar cal = new GregorianCalendar();  
+        long currentTime = cal.getTimeInMillis() / (1000*60*60*24);       
+        cal.set(year,month - 1 , day);      
+        long birthTime = cal.getTimeInMillis() / (1000*60*60*24); 
+        int interval = (int)( birthTime - currentTime );     
+
+        return -interval;        
+    }
 }

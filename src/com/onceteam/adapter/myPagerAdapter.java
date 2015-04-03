@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.onceteam.model.Event;
 import com.onceteam.once.DetailEventActivity;
-import com.onceteam.once.R;
+import com.sinchontycoon.once.R;
 import com.squareup.picasso.Picasso;
 
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
@@ -44,26 +44,20 @@ public class myPagerAdapter extends PagerAdapter {
 		return v == obj;
 	}
 	
+	@Override
 	public int getItemPosition(Object object){
 	     return POSITION_NONE;
 	}
  
-	
+	@Override
 	public Object instantiateItem(View pager, final int position) {
 		View v = null;
 		int resId = R.layout.item_pvlist;
 		v = mInflater.inflate(resId, null);
 		
-		TextView title = (TextView) v.findViewById(R.id.title);
-		TextView subtitle = (TextView) v.findViewById(R.id.subtitle);
-		TextView date = (TextView) v.findViewById(R.id.date);
 		ImageView poster = (ImageView) v.findViewById(R.id.poster);
 		
 		resultp = data.get(position);
-		
-		title.setText(resultp.getTitle());
-		subtitle.setText(resultp.getSubtitle());
-		date.setText(resultp.getDate());
 		
 		Picasso.with(context)
 		.load(resultp.getImage_pv())
@@ -84,6 +78,7 @@ public class myPagerAdapter extends PagerAdapter {
 		return v;
 	}
 	
+	@Override
 	public void destroyItem(View pager, int position, Object view) {
 		((AutoScrollViewPager) pager).removeView((View) view);
 	}

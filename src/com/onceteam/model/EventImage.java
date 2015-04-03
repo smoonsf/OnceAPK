@@ -1,6 +1,6 @@
 package com.onceteam.model;
 
-public class EventImage {
+public class Eventimage {
 	private String id;
 	private String image;
 	private String resource_uri;

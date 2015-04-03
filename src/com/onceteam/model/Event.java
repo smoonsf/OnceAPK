@@ -13,7 +13,7 @@ public class Event {
 	private String created_at;
 	private Integer hits;
 	private Integer likes;
-	private List<EventImage> eventimage;
+	private List<Eventimage> eventimage;
 	private String image_pv;
 	private String image_thumbnail;
 	private String resource_uri;
@@ -33,5 +33,5 @@ public class Event {
     public String getUri() { return resource_uri; }
     public String getHomepage() { return homepage; }
     public Boolean getPremium() { return premium; }
-    public List<EventImage> getEventimage(){ return eventimage; }
+    public List<Eventimage> getEventimage(){ return eventimage; }
 }

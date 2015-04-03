@@ -1,6 +1,6 @@
 package com.onceteam.adapter;
 
-import com.onceteam.once.R;
+import com.sinchontycoon.once.R;
 
 import android.content.Context;
 import android.graphics.Color;

@@ -10,15 +10,16 @@
     	android:layout_centerVertical="true"
     	android:id="@+id/title_notice"
     	android:textSize="17sp"
+    	android:paddingLeft="15sp"
         />
     <TextView 
         android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
-    	android:layout_alignParentRight="true"
     	android:layout_centerVertical="true"
-    	android:layout_toLeftOf="@+id/arrow"
+    	android:layout_toRightOf="@+id/title_notice"
     	android:id="@+id/date_notice"
     	android:textColor="#cccccc"
+    	android:layout_marginLeft="20sp"
         />
     
     <ImageView 

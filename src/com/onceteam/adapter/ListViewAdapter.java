@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.onceteam.model.Event;
 import com.onceteam.once.DetailEventActivity;
-import com.onceteam.once.R;
+import com.sinchontycoon.once.R;
 import com.squareup.picasso.Picasso;
 
 import android.content.Context;
@@ -82,7 +82,7 @@ public class ListViewAdapter extends BaseAdapter {
 		
 		title.setText(resultp.getTitle());
 		subtitle.setText(resultp.getSubtitle());
-		date.setText(resultp.getDate());
+		date.setText(resultp.getDate().substring(0, 10));
 		
 		Picasso.with(context)
 				.load(resultp.getImage_thumbnail())

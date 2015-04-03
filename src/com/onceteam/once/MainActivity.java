@@ -5,14 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.converter.GsonConverter;
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -23,7 +21,7 @@ import com.onceteam.api.EventService;
 import com.onceteam.api.NoticeService;
 import com.onceteam.model.Event;
 import com.onceteam.model.Notice;
-
+import com.sinchontycoon.once.R;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -67,7 +65,7 @@ public class MainActivity extends Activity implements
 	 */
 	private CharSequence mTitle;
 
-	
+	Integer mCurrentPosition = null;
 	
     
 	
@@ -100,72 +98,83 @@ public class MainActivity extends Activity implements
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getFragmentManager();
-		switch (position) {
-		case 0:
-			
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container,
-							PlaceholderFragment.newInstance(position + 1))
-					.commit();
-			break;
-		case 1:
-			
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container,
-							PlaceholderFragment.newInstance(position + 1))
-					.commit();
-			break;
-		case 2:
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container,
-							PlaceholderFragment.newInstance(position + 1))
-					.commit();
-			break;
-		case 3:
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container,
-							PlaceholderFragment.newInstance(position + 1))
-					.commit();
-			break;
-		case 4:
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container,
-							PlaceholderFragment.newInstance(position + 1))
-					.commit();
-			break;
-		case 5:
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container,
-							PlaceholderFragment.newInstance(position + 1))
-					.commit();
-			break;
-		case 6:
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container,
-							PlaceholderFragment.newInstance(position + 1))
-					.commit();
-			break;
-		case 7:
-			Context mContext;
-            mContext =  getApplicationContext();
-			Intent intent = new Intent(mContext, WebViewActivity.class);
-			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			mContext.startActivity(intent);
-			break;
-		case 8:
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container,
-							PlaceholderFragment.newInstance(position + 1))
-					.commit();
-			break;
+		if(mCurrentPosition == null || position != mCurrentPosition){
+			switch (position) {
+			case 0:
+				
+				fragmentManager
+						.beginTransaction()
+						.replace(R.id.container,
+								PlaceholderFragment.newInstance(position + 1))
+						.commit();
+				mCurrentPosition = position;
+				break;
+			case 1:
+				
+				fragmentManager
+						.beginTransaction()
+						.replace(R.id.container,
+								PlaceholderFragment.newInstance(position + 1))
+						.commit();
+				mCurrentPosition = position;
+				break;
+			case 2:
+				fragmentManager
+						.beginTransaction()
+						.replace(R.id.container,
+								PlaceholderFragment.newInstance(position + 1))
+						.commit();
+				mCurrentPosition = position;
+				break;
+			case 3:
+				fragmentManager
+						.beginTransaction()
+						.replace(R.id.container,
+								PlaceholderFragment.newInstance(position + 1))
+						.commit();
+				mCurrentPosition = position;
+				break;
+			case 4:
+				fragmentManager
+						.beginTransaction()
+						.replace(R.id.container,
+								PlaceholderFragment.newInstance(position + 1))
+						.commit();
+				mCurrentPosition = position;
+				break;
+			case 5:
+				fragmentManager
+						.beginTransaction()
+						.replace(R.id.container,
+								PlaceholderFragment.newInstance(position + 1))
+						.commit();
+				mCurrentPosition = position;
+				break;
+			case 6:
+				fragmentManager
+						.beginTransaction()
+						.replace(R.id.container,
+								PlaceholderFragment.newInstance(position + 1))
+						.commit();
+				mCurrentPosition = position;
+				break;
+			case 7:
+				Context mContext;
+	            mContext =  getApplicationContext();
+				Intent intent = new Intent(mContext, WebViewActivity.class);
+				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				mContext.startActivity(intent);
+				mCurrentPosition = position;
+				break;
+			case 8:
+				fragmentManager
+						.beginTransaction()
+						.replace(R.id.container,
+								PlaceholderFragment.newInstance(position + 1))
+						.commit();
+				mCurrentPosition = position;
+				break;
+			}
 		}
 
 	}
