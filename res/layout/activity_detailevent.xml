@@ -9,7 +9,8 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="270sp"
 	    android:layout_alignParentTop="true"
-	    android:padding="0sp">
+	    android:padding="0sp"
+	    android:background="@drawable/vp_bg">
         
 	    </cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager>
 	    
@@ -47,6 +48,7 @@
 	   		android:layout_centerHorizontal="true"
 	   		android:textSize="30sp"
 	   		android:id="@+id/title"
+	   	
 	        />
         
         <TextView 
@@ -57,6 +59,7 @@
 	   		android:layout_centerHorizontal="true"
 	   		android:textSize="12sp"
 	   		android:id="@+id/dday"
+	   		android:textColor="#AAAAAA"
 	   		 />
    		
         <TextView 
@@ -68,6 +71,7 @@
 	   		android:layout_centerHorizontal="true"
 	   		android:textSize="12sp"
 	   		android:id="@+id/like"
+	   		android:textColor="#AAAAAA"
 	   		 />
         
    		<TextView 
@@ -78,6 +82,7 @@
 	   		android:layout_centerHorizontal="true"
 	   		android:textSize="12sp"
 	   		android:id="@+id/date"
+	   		android:textColor="#AAAAAA"
 	   		
 	        />
    		
@@ -129,7 +134,7 @@
    		    android:id="@+id/content"
    		    android:layout_width="match_parent"
 	   		android:layout_height="wrap_content"
-	   		android:layout_margin="10sp"
+	   		android:layout_margin="25sp"
 	   		android:layout_below="@+id/btn_share"
 	   		/>
    		
@@ -137,7 +142,7 @@
    		    android:id="@+id/btn_homepage"
    		    android:layout_width="180sp"
 	   		android:layout_height="wrap_content"
-	   		android:layout_margin="10sp"
+	   		android:layout_margin="15sp"
 	   		android:layout_below="@+id/content"
 	   		android:layout_centerHorizontal="true"
 	   		android:gravity="center"
@@ -145,6 +150,37 @@
 	   		android:text="사이트 이동   >"
 	   		android:textColor="#16BAEF"
 	   		/>
+   		
+   		<RelativeLayout
+   		    android:layout_width="match_parent"
+    		android:layout_height="250sp"
+    		android:id="@+id/mapframe"
+    		android:padding="10sp"
+    		android:layout_margin="20sp"
+    		android:layout_below="@+id/btn_homepage"
+    		android:background="@drawable/btn_detailview" >
+   		    
+   		    <TextView 
+   		        android:layout_width="wrap_content" 
+		    	android:layout_height="wrap_content"
+		    	android:padding="0sp"
+		    	android:layout_margin="7sp"
+		    	android:textSize="12sp"
+		    	android:text="위치정보"
+		    	android:layout_alignParentTop="true"
+		    	android:layout_centerHorizontal="true"
+		    	android:id="@+id/mapinfo"
+		    	/>
+   		    
+   		    
+   		    <com.nhn.android.maps.NMapView 
+			    android:layout_width="fill_parent" 
+			    android:layout_height="fill_parent"
+			    android:layout_below="@+id/mapinfo"
+			    android:id="@+id/mapView"
+			    />
+   		    
+   		</RelativeLayout>
   		
     </RelativeLayout>
         

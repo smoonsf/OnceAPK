@@ -35,76 +35,99 @@ public final class R {
         public static final int action_search=0x7f020000;
         public static final int activated_bg=0x7f020001;
         public static final int back_gradient=0x7f020002;
-        public static final int btn_detailview=0x7f020003;
-        public static final int btn_detailview_pressed=0x7f020004;
-        public static final int btn_homepage=0x7f020005;
-        public static final int contact_us=0x7f020006;
-        public static final int drawer_shadow=0x7f020007;
-        public static final int gradient_effect=0x7f020008;
-        public static final int heart=0x7f020009;
-        public static final int ic_drawer=0x7f02000a;
-        public static final int ic_launcher=0x7f02000b;
-        public static final int normal=0x7f02000c;
-        public static final int notice_black_normal=0x7f02000d;
-        public static final int notice_black_select=0x7f02000e;
-        public static final int notice_yellow_normal=0x7f02000f;
-        public static final int notice_yellow_select=0x7f020010;
-        public static final int once_logo=0x7f020011;
-        public static final int page_not=0x7f020012;
-        public static final int page_select=0x7f020013;
-        public static final int praise=0x7f020014;
-        public static final int pressed=0x7f020015;
-        public static final int reply=0x7f020016;
-        public static final int selector_btn_detailview=0x7f020017;
-        public static final int share=0x7f020018;
-        public static final int splash1=0x7f020019;
-        public static final int splash2=0x7f02001a;
-        public static final int splash3=0x7f02001b;
-        public static final int splash4=0x7f02001c;
-        public static final int splash5=0x7f02001d;
-        public static final int temp=0x7f02001e;
+        public static final int bg_speech=0x7f020003;
+        public static final int btn_detailview=0x7f020004;
+        public static final int btn_detailview_pressed=0x7f020005;
+        public static final int btn_green_highlight=0x7f020006;
+        public static final int btn_green_normal=0x7f020007;
+        public static final int btn_green_pressed=0x7f020008;
+        public static final int btn_homepage=0x7f020009;
+        public static final int contact_us=0x7f02000a;
+        public static final int drawer_shadow=0x7f02000b;
+        public static final int gradient_effect=0x7f02000c;
+        public static final int heart=0x7f02000d;
+        public static final int ic_angle=0x7f02000e;
+        public static final int ic_drawer=0x7f02000f;
+        public static final int ic_launcher=0x7f020010;
+        public static final int ic_map_arrive=0x7f020011;
+        public static final int ic_map_arrive_over=0x7f020012;
+        public static final int ic_map_no_01=0x7f020013;
+        public static final int ic_map_no_02=0x7f020014;
+        public static final int ic_map_start=0x7f020015;
+        public static final int ic_map_start_over=0x7f020016;
+        public static final int ic_pin_01=0x7f020017;
+        public static final int ic_pin_02=0x7f020018;
+        public static final int icon=0x7f020019;
+        public static final int normal=0x7f02001a;
+        public static final int notice_black_normal=0x7f02001b;
+        public static final int notice_black_select=0x7f02001c;
+        public static final int notice_yellow_normal=0x7f02001d;
+        public static final int notice_yellow_select=0x7f02001e;
+        public static final int once_logo=0x7f02001f;
+        public static final int page_not=0x7f020020;
+        public static final int page_select=0x7f020021;
+        public static final int pin_ballon_arrow=0x7f020022;
+        public static final int pin_ballon_bg=0x7f020023;
+        public static final int pin_ballon_on_arrow=0x7f020024;
+        public static final int praise=0x7f020025;
+        public static final int pressed=0x7f020026;
+        public static final int pubtrans_ic_mylocation_off=0x7f020027;
+        public static final int pubtrans_ic_mylocation_on=0x7f020028;
+        public static final int reply=0x7f020029;
+        public static final int selector_btn_detailview=0x7f02002a;
+        public static final int share=0x7f02002b;
+        public static final int splash1=0x7f02002c;
+        public static final int splash2=0x7f02002d;
+        public static final int splash3=0x7f02002e;
+        public static final int splash4=0x7f02002f;
+        public static final int splash5=0x7f020030;
+        public static final int temp=0x7f020031;
+        public static final int vp_bg=0x7f020032;
     }
     public static final class id {
-        public static final int action_search=0x7f090027;
-        public static final int arrow=0x7f09001e;
+        public static final int action_search=0x7f09002a;
+        public static final int arrow=0x7f090021;
         public static final int btn_homepage=0x7f09000c;
         public static final int btn_like=0x7f090008;
         public static final int btn_reply=0x7f09000a;
         public static final int btn_share=0x7f090009;
-        public static final int container=0x7f09000e;
+        public static final int container=0x7f090011;
         public static final int content=0x7f09000b;
         public static final int contentframe=0x7f090003;
         public static final int date=0x7f090006;
-        public static final int date_notice=0x7f09001d;
-        public static final int date_sv=0x7f090025;
-        public static final int datelabel_sv=0x7f090024;
+        public static final int date_notice=0x7f090020;
+        public static final int date_sv=0x7f090028;
+        public static final int datelabel_sv=0x7f090027;
         public static final int dday=0x7f090005;
-        public static final int drawer_layout=0x7f09000d;
-        public static final int image=0x7f09001f;
+        public static final int drawer_layout=0x7f090010;
+        public static final int image=0x7f090022;
         public static final int like=0x7f090007;
-        public static final int listview_main=0x7f090014;
-        public static final int listview_notice=0x7f090017;
-        public static final int logo=0x7f090010;
-        public static final int navigation_drawer=0x7f09000f;
-        public static final int notice_content=0x7f09001b;
-        public static final int noticetitle=0x7f090016;
-        public static final int packagename=0x7f090012;
+        public static final int listview_main=0x7f090017;
+        public static final int listview_notice=0x7f09001a;
+        public static final int logo=0x7f090013;
+        public static final int mapView=0x7f09000f;
+        public static final int mapframe=0x7f09000d;
+        public static final int mapinfo=0x7f09000e;
+        public static final int navigation_drawer=0x7f090012;
+        public static final int notice_content=0x7f09001e;
+        public static final int noticetitle=0x7f090019;
+        public static final int packagename=0x7f090015;
         public static final int pagemark=0x7f090001;
-        public static final int pager_premium=0x7f090015;
-        public static final int poster=0x7f090019;
-        public static final int poster_sv=0x7f090026;
-        public static final int praise=0x7f090011;
+        public static final int pager_premium=0x7f090018;
+        public static final int poster=0x7f09001c;
+        public static final int poster_sv=0x7f090029;
+        public static final int praise=0x7f090014;
         public static final int scrollview=0x7f090002;
-        public static final int subtitle=0x7f09001a;
-        public static final int subtitle_sv=0x7f090023;
-        public static final int subtitlelabel_sv=0x7f090022;
-        public static final int text1=0x7f090018;
+        public static final int subtitle=0x7f09001d;
+        public static final int subtitle_sv=0x7f090026;
+        public static final int subtitlelabel_sv=0x7f090025;
+        public static final int text1=0x7f09001b;
         public static final int title=0x7f090004;
-        public static final int title_notice=0x7f09001c;
-        public static final int title_sv=0x7f090021;
-        public static final int titlelabel_sv=0x7f090020;
+        public static final int title_notice=0x7f09001f;
+        public static final int title_sv=0x7f090024;
+        public static final int titlelabel_sv=0x7f090023;
         public static final int viewpager_image=0x7f090000;
-        public static final int webview=0x7f090013;
+        public static final int webview=0x7f090016;
     }
     public static final class layout {
         public static final int activity_detailevent=0x7f030000;
@@ -141,6 +164,7 @@ public final class R {
         public static final int datelabel=0x7f060011;
         public static final int navigation_drawer_close=0x7f06000c;
         public static final int navigation_drawer_open=0x7f06000b;
+        public static final int str_done=0x7f060012;
         public static final int subtitlelabel=0x7f060010;
         public static final int title_category1=0x7f060003;
         public static final int title_category2=0x7f060004;
@@ -158,11 +182,6 @@ public final class R {
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
 
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.

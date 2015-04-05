@@ -1,4 +1,4 @@
-package com.onceteam.once;
+package com.onceteam.api;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonDeserializationContext;

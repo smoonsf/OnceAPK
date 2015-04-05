@@ -3,14 +3,14 @@ package com.onceteam.once;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.converter.GsonConverter;
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -18,10 +18,12 @@ import com.onceteam.adapter.ListViewAdapter;
 import com.onceteam.adapter.NoticeListAdapter;
 import com.onceteam.adapter.myPagerAdapter;
 import com.onceteam.api.EventService;
+import com.onceteam.api.ListDeserializer;
 import com.onceteam.api.NoticeService;
 import com.onceteam.model.Event;
 import com.onceteam.model.Notice;
 import com.sinchontycoon.once.R;
+
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -43,12 +45,14 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ExpandableListView;
-import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity implements
@@ -74,7 +78,10 @@ public class MainActivity extends Activity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+	    getActionBar().setHomeButtonEnabled(true);
 		getActionBar().setDisplayShowHomeEnabled(false);
+		getActionBar().setDisplayShowCustomEnabled(true);
 		// Splash이미지 띄
 		startActivity(new Intent(this, SplashActivity.class));
 		
@@ -161,9 +168,11 @@ public class MainActivity extends Activity implements
 			case 7:
 				Context mContext;
 	            mContext =  getApplicationContext();
-				Intent intent = new Intent(mContext, WebViewActivity.class);
-				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				mContext.startActivity(intent);
+//				Intent intent = new Intent(mContext, WebViewActivity.class);
+//				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//				mContext.startActivity(intent);
+	            Toast toast = Toast.makeText(mContext, "구현중인 기능 입니다",Toast.LENGTH_SHORT);
+	            toast.show();
 				mCurrentPosition = position;
 				break;
 			case 8:
@@ -187,6 +196,7 @@ public class MainActivity extends Activity implements
 		ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		actionBar.setDisplayShowTitleEnabled(false);
+		actionBar.setDisplayShowCustomEnabled(true);
 		actionBar.setTitle(mTitle);
 	}
 
@@ -212,9 +222,11 @@ public class MainActivity extends Activity implements
 		if (item.getItemId() == R.id.action_search) {
             Context mContext;
             mContext =  getApplicationContext();
-			Intent intent = new Intent(mContext, SearchActivity.class);
-			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			mContext.startActivity(intent);
+//			Intent intent = new Intent(mContext, SearchActivity.class);
+//			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//			mContext.startActivity(intent);
+            Toast toast = Toast.makeText(mContext, "구현중인 기능 입니다",Toast.LENGTH_SHORT);
+            toast.show();
             return true;
         }
 
@@ -359,7 +371,7 @@ class getEventList extends AsyncTask<Void, Void, Void> {
 		
 		type = new TypeToken<List<Event>>(){}.getType();
         gson = new GsonBuilder()
-                        .registerTypeAdapter(type, new ListDeserializer())
+                        .registerTypeAdapter(type, new ListDeserializer<Object>())
                         .create();
 
         restAdapter = new RestAdapter.Builder()
@@ -398,7 +410,7 @@ class getEventList extends AsyncTask<Void, Void, Void> {
 	        });
 		}
 		else{
-			eventService.getCatEventList(category, events.size(), new Callback<List<Event>>(){
+			eventService.getCatEventList(category, events.size(), "date", new Callback<List<Event>>(){
 				
 	            @Override
 	            public void success(List<Event> event1, Response not_using_response) {
@@ -442,6 +454,17 @@ class getEventList extends AsyncTask<Void, Void, Void> {
 	protected void onPostExecute(Void args){
 		lvadapter = new ListViewAdapter(events);
 		listview_main.setAdapter(lvadapter);
+		listview_main.setOnItemClickListener(new OnItemClickListener(){
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Intent intent = new Intent(context, DetailEventActivity.class);
+				intent.putExtra("id", events.get(position).getId());
+				context.startActivity(intent);
+			}
+			
+		});
 		
 		listview_main.setOnScrollListener(new OnScrollListener(){
 			@Override
@@ -476,7 +499,7 @@ class getEventList extends AsyncTask<Void, Void, Void> {
                         });
                 	}
                 	else {
-                		eventService.getCatEventList(category, events.size(), new Callback<List<Event>>(){
+                		eventService.getCatEventList(category, events.size(), "date", new Callback<List<Event>>(){
 
                             @Override
                             public void success(List<Event> event1, Response not_using_response) {
@@ -527,19 +550,9 @@ class getEventList extends AsyncTask<Void, Void, Void> {
 		});
 		
 		
-		Handler autoSlide = new Handler();
-		Runnable r = new Runnable(){
-			@Override
-			public void run() {
-				int item = viewpager_premium.getCurrentItem();
-				if(item == events_premium.size() - 1)
-					viewpager_premium.setCurrentItem(0, true);
-				else
-					viewpager_premium.setCurrentItem(item + 1, true);
-			}	
-		};
+		
 			
-		viewpager_premium.setInterval(6000);
+		viewpager_premium.setInterval(10000);
 		viewpager_premium.startAutoScroll();
 		
 		
@@ -596,7 +609,7 @@ class getNoticeList extends AsyncTask<Void, Void, Void> {
 		super.onPreExecute();
 		type = new TypeToken<List<Notice>>(){}.getType();
         gson = new GsonBuilder()
-                        .registerTypeAdapter(type, new ListDeserializer())
+                        .registerTypeAdapter(type, new ListDeserializer<Object>())
                         .create();
 
         restAdapter = new RestAdapter.Builder()

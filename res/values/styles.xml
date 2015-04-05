@@ -10,6 +10,7 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+        <item name="android:typeface">sans</item>
     </style>
 
     <!-- Application theme. -->
@@ -22,6 +23,7 @@
     <style name="TranslucentStatusBar" parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/TranslucentActionBar</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:typeface">sans</item>
     </style>
 
     <style name="TranslucentActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">

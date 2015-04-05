@@ -4,11 +4,11 @@
     <string name="app_name">Once</string>
     <string name="title_home">Once Home</string>
     <string name="category">카테고리</string>
-    <string name="title_category1">페스티발</string>
+    <string name="title_category1">페스티벌</string>
     <string name="title_category2">일일호프</string>
-    <string name="title_category3">상점내행사</string>
-    <string name="title_category4">플리마켓</string>
-    <string name="title_category5">공연</string>
+    <string name="title_category3">파티</string>
+    <string name="title_category4">공연</string>
+    <string name="title_category5">플리마켓</string>
     <string name="title_notice">공지사항</string>
     <string name="title_login">로그인</string>
     <string name="title_contact">Contact us</string>
@@ -20,5 +20,5 @@
     <string name="titlelabel">"행사이름 : "</string>
     <string name="subtitlelabel">"부제 : "</string>
     <string name="datelabel">"일시 : "</string>
-
+	<string name="str_done">완료</string>
 </resources>

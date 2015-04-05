@@ -89,15 +89,6 @@ public class ListViewAdapter extends BaseAdapter {
 				.placeholder(R.drawable.temp)
 				.into(poster);
 		
-		convertView.setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(context, DetailEventActivity.class);
-				intent.putExtra("id", resultp.getId());
-				context.startActivity(intent);
-			}
-		});
-		
 		return convertView;
 	}
 	

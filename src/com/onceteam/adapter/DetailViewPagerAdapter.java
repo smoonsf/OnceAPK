@@ -1,24 +1,16 @@
 package com.onceteam.adapter;
 
-import java.util.List;
-
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
 import com.onceteam.model.Event;
-import com.onceteam.model.Eventimage;
-import com.onceteam.once.DetailEventActivity;
 import com.sinchontycoon.once.R;
 import com.squareup.picasso.Picasso;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class DetailViewPagerAdapter extends PagerAdapter {
 	

@@ -21,10 +21,13 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="270sp"
 	    android:layout_alignParentTop="true"
-	    android:padding="0sp">
+	    android:padding="0sp"
+	    android:background="@drawable/vp_bg">
         
 	    </cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager>
    
+    
+    
     
     <RelativeLayout 
         android:layout_width="fill_parent"

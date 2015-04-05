@@ -13,8 +13,9 @@ public interface EventService {
     @GET("/event/?format=json&order_by=date&limit=10")
     void getEventList(@Query("offset") Integer offset, Callback<List<Event>> callback);
     
-    @GET("/event/?format=json&order_by=date&limit=10")
-    void getCatEventList(@Query("category") Integer cat, @Query("offset") Integer offset, Callback<List<Event>> callback);
+    @GET("/event/?format=json&limit=10")
+    void getCatEventList(@Query("category") Integer cat, @Query("offset") Integer offset, @Query("order_by") String order, 
+    		Callback<List<Event>> callback);
     
     @GET("/event/?premium=true&order_by=date&format=json")
     void getPremiumEventList(Callback<List<Event>> callback);

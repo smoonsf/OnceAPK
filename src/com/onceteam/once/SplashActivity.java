@@ -5,10 +5,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.ImageView;
-import android.widget.TextView;
 import com.sinchontycoon.once.R;
 
 public class SplashActivity extends Activity {
+	
+	
 	
 	
 	/** Called when the activity is first created. */
@@ -64,7 +65,7 @@ public class SplashActivity extends Activity {
         handler.sendEmptyMessageDelayed(0,3000);
 	 
         
-        TextView tv = (TextView) findViewById(R.id.packagename);
+        //TextView tv = (TextView) findViewById(R.id.packagename);
         //tv.setText(getApplicationContext().getPackageName());
 	}
 	

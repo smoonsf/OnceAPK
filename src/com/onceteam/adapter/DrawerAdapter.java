@@ -4,7 +4,6 @@ import com.sinchontycoon.once.R;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,7 +90,7 @@ public class DrawerAdapter extends BaseAdapter {
 		text.setText(arrayData[position]);
 		
 		
-		convertView.setPadding(120, 30, 30, 30);
+		convertView.setPadding(90, 30, 30, 30);
 		text.setTextSize(20);
 		text.setTextColor(Color.parseColor("#A6A9AB"));
 		
